@@ -6,13 +6,7 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 export default function Home() {
   return (
     <Layout title="Cien API">
-      <main style={{ padding: '4rem 2rem', textAlign: 'center' }}>
-        <img
-          src={useBaseUrl('img/api.png')}
-          alt="Cien API"
-          style={{ maxWidth: 640, width: '100%', height: 'auto', marginBottom: '1.5rem' }}
-        />
-
+      <main className="hero" style={{ padding: '4rem 2rem', textAlign: 'center', position: 'relative' }}>
         <h1>Cien API</h1>
         <p style={{ maxWidth: 900, margin: '0 auto 1.5rem' }}>
           The Cien API allows developers to access the underlying data from Cien’s TrueAI platform,
@@ -44,7 +38,7 @@ export default function Home() {
         {/* Banner above footer */}
         <div style={{ marginTop: '3rem' }}>
           <img
-            src={useBaseUrl('img/cien_banner.png')}
+            src={useBaseUrl('/img/cien_banner.png')}
             alt="Cien banner"
             style={{ maxWidth: 1200, width: '100%', height: 'auto' }}
           />

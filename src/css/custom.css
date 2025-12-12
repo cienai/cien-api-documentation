@@ -45,7 +45,7 @@
   display: inline-flex !important;
 }
 .navbar__items--right {
-  display: inline-flex;
+  display: none !important;
 }
 
 /* Mobile drawer/menu icons for nav items */
@@ -115,4 +115,29 @@ html:not([data-theme='dark']) .footer .footer__link-item {
 .footer .footer__link-item::before {
   content: none !important;
   background: none !important;
+}
+
+/* Hero background text: "Measure What Matters" behind content */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap');
+.hero {
+  position: relative;
+}
+.hero::before {
+  content: 'Measure\A What\A Matters';
+  white-space: pre;
+  position: absolute;
+  top: 10%;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: 'Montserrat', system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', Arial, sans-serif;
+  font-weight: 700;
+  line-height: 0.9;
+  color: rgba(0, 0, 0, 0.08); /* light grey */
+  font-size: clamp(64px, 18vw, 240px);
+  z-index: 0;
+  pointer-events: none;
+}
+.hero > * {
+  position: relative;
+  z-index: 1;
 }
