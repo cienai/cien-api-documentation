@@ -1,5 +1,6 @@
 ---
 title: activities
+hide_table_of_contents: true
 ---
 
 This entity represents **activities** records in the Cien platform.

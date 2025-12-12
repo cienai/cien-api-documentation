@@ -1,5 +1,6 @@
 ---
 title: metadata_ai_scores
+hide_table_of_contents: true
 ---
 
 This entity represents **metadata_ai_scores** records in the Cien platform.

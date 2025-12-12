@@ -1,5 +1,6 @@
 ---
 title: groups
+hide_table_of_contents: true
 ---
 
 This entity represents **groups** records in the Cien platform.

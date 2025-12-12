@@ -1,5 +1,6 @@
 ---
 title: metadata_heatmap_items
+hide_table_of_contents: true
 ---
 
 This entity represents **metadata_heatmap_items** records in the Cien platform.

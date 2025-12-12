@@ -1,5 +1,6 @@
 ---
 title: accounts
+hide_table_of_contents: true
 ---
 
 This entity represents **accounts** records in the Cien platform.

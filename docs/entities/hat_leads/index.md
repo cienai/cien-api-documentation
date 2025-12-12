@@ -1,5 +1,6 @@
 ---
 title: hat_leads
+hide_table_of_contents: true
 ---
 
 This entity represents **hat_leads** records in the Cien platform.

@@ -1,5 +1,6 @@
 ---
 title: opps_histories
+hide_table_of_contents: true
 ---
 
 This entity represents **opps_histories** records in the Cien platform.

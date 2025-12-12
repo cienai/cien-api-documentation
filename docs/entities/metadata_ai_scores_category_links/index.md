@@ -1,5 +1,6 @@
 ---
 title: metadata_ai_scores_category_links
+hide_table_of_contents: true
 ---
 
 This entity represents **metadata_ai_scores_category_links** records in the Cien platform.

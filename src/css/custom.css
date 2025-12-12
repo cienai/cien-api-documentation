@@ -15,6 +15,10 @@
   --ifm-color-primary-lightest: #3cad6e;
   --ifm-code-font-size: 95%;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
+  /* Make the docs content area wider on large screens */
+  --ifm-container-width-xl: 1600px;
+  /* Slightly smaller base font for denser tables */
+  --ifm-font-size-base: 15px;
 }
 
 /* For readability concerns, you should choose a lighter palette in dark mode. */
@@ -31,4 +35,20 @@
 
 .navbar__logo img {
   height: 28px;
+}
+
+/* Docs page: make tables more compact and use full width */
+.theme-doc-markdown table {
+  font-size: 0.9rem;
+}
+.theme-doc-markdown table th,
+.theme-doc-markdown table td {
+  padding: 0.35rem 0.5rem;
+  white-space: normal;
+  word-break: break-word;
+}
+
+/* Allow the main column to stretch when the right ToC is hidden */
+.row .col.docItemCol {
+  flex: 1 1 100%;
 }

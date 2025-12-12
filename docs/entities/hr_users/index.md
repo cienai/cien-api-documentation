@@ -1,5 +1,6 @@
 ---
 title: hr_users
+hide_table_of_contents: true
 ---
 
 This entity represents **hr_users** records in the Cien platform.

@@ -1,5 +1,6 @@
 ---
 title: metadata_reference_values
+hide_table_of_contents: true
 ---
 
 This entity represents **metadata_reference_values** records in the Cien platform.

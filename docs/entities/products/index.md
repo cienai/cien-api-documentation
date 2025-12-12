@@ -1,5 +1,6 @@
 ---
 title: products
+hide_table_of_contents: true
 ---
 
 This entity represents **products** records in the Cien platform.

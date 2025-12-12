@@ -1,5 +1,6 @@
 ---
 title: open_pipeline
+hide_table_of_contents: true
 ---
 
 This entity represents **open_pipeline** records in the Cien platform.

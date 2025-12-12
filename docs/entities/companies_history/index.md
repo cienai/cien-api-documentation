@@ -1,5 +1,6 @@
 ---
 title: companies_history
+hide_table_of_contents: true
 ---
 
 This entity represents **companies_history** records in the Cien platform.

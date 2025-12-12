@@ -1,5 +1,6 @@
 ---
 title: opps_stages
+hide_table_of_contents: true
 ---
 
 This entity represents **opps_stages** records in the Cien platform.

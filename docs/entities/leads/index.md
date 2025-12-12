@@ -1,5 +1,6 @@
 ---
 title: leads
+hide_table_of_contents: true
 ---
 
 This entity represents **leads** records in the Cien platform.

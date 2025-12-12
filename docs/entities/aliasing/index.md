@@ -1,5 +1,6 @@
 ---
 title: aliasing
+hide_table_of_contents: true
 ---
 
 This entity represents **aliasing** records in the Cien platform.

@@ -1,5 +1,6 @@
 ---
 title: ssr
+hide_table_of_contents: true
 ---
 
 This entity represents **ssr** records in the Cien platform.

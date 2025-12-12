@@ -1,5 +1,6 @@
 ---
 title: ssr_history
+hide_table_of_contents: true
 ---
 
 This entity represents **ssr_history** records in the Cien platform.

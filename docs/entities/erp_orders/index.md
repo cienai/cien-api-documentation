@@ -1,5 +1,6 @@
 ---
 title: erp_orders
+hide_table_of_contents: true
 ---
 
 This entity represents **erp_orders** records in the Cien platform.

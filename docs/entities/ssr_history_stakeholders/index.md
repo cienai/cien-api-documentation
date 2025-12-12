@@ -1,5 +1,6 @@
 ---
 title: ssr_history_stakeholders
+hide_table_of_contents: true
 ---
 
 This entity represents **ssr_history_stakeholders** records in the Cien platform.

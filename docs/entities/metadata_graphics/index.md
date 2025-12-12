@@ -1,5 +1,6 @@
 ---
 title: metadata_graphics
+hide_table_of_contents: true
 ---
 
 This entity represents **metadata_graphics** records in the Cien platform.

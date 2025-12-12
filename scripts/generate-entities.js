@@ -57,8 +57,9 @@ fs.createReadStream(csvPath)
 
       const headers = Object.keys(rows[0]);
 
-      const frontMatter = `---
+  const frontMatter = `---
 title: ${entity}
+hide_table_of_contents: true
 ---
 
 This entity represents **${entity}** records in the Cien platform.

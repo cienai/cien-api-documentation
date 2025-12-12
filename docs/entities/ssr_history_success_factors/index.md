@@ -1,5 +1,6 @@
 ---
 title: ssr_history_success_factors
+hide_table_of_contents: true
 ---
 
 This entity represents **ssr_history_success_factors** records in the Cien platform.

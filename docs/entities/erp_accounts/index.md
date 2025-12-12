@@ -1,5 +1,6 @@
 ---
 title: erp_accounts
+hide_table_of_contents: true
 ---
 
 This entity represents **erp_accounts** records in the Cien platform.

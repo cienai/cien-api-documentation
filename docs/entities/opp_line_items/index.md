@@ -1,5 +1,6 @@
 ---
 title: opp_line_items
+hide_table_of_contents: true
 ---
 
 This entity represents **opp_line_items** records in the Cien platform.

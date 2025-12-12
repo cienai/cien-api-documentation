@@ -1,5 +1,6 @@
 ---
 title: contacts
+hide_table_of_contents: true
 ---
 
 This entity represents **contacts** records in the Cien platform.
