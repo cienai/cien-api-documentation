@@ -2,107 +2,103 @@
 title: ssr
 ---
 
-## ssr
-
 This entity represents **ssr** records in the Cien platform.
-
----
 
 ## Fields
 
-| Field | Type | Description |
-|------|------|-------------|
-| _sys_as_of | DATETIME | The date of the last data request from the platform |
-| _sys_doc_id | STRING | Unique record identifier, based on the ID of the document in the remote system (such as Salesforce ID) |
-| _sys_filt_end_date | DATE | The end date of the record, stripped of time |
-| _sys_filt_start_date | DATE | The start date of the record, stripped of time |
-| crm_account_count | INTEGER | Number of accounts related to the sales process |
-| crm_account_custom_value_1 | STRING | Custom categorical variable on the account |
-| crm_account_custom_value_2 | STRING | Custom categorical variable on the account |
-| crm_account_custom_value_3 | STRING | Custom categorical variable on the account |
-| crm_act_count | INTEGER | Number of activities related to the sales process |
-| crm_contact_count | INTEGER | Number of contacts related to the sales process |
-| crm_custom_value_1 | STRING | Custom categorical variable |
-| crm_custom_value_2 | STRING | Custom categorical variable |
-| crm_custom_value_3 | STRING | Custom categorical variable |
-| crm_industry | STRING | Account's industry |
-| crm_lead_count | INTEGER | Number of leads related to the sales process |
-| crm_leadsource | STRING | Account's leadsource |
-| crm_name | STRING | Account's name |
-| crm_num_employees | INTEGER | Account's number of employees |
-| crm_opp_count | INTEGER | Number of opportunities related to the sales process |
-| crm_owner_id | STRING | Account owner's id in the CRM |
-| crm_parent_id | STRING | Account's parent id in the CRM |
-| crm_type | STRING | Account's type in the CRM |
-| crm_web_url | STRING | Account's URL in the CRM |
-| sales_proc_account_prospecting | BOOLEAN | Deprecated field |
-| sales_proc_ae_did_new_logo | BOOLEAN | Deprecated field |
-| sales_proc_am_did_post_sales | BOOLEAN | Deprecated field |
-| sales_proc_determinable | BOOLEAN | Deprecated field |
-| sales_proc_handoffs | STRING | Deprecated field |
-| sales_proc_mgr_involved | BOOLEAN | Deprecated field |
-| sales_proc_mkt_did_lead_gen | BOOLEAN | Deprecated field |
-| sales_proc_multiple_reps_per_stage | BOOLEAN | Deprecated field |
-| sales_proc_new_logo_more_than_one_rep | BOOLEAN | Deprecated field |
-| sales_proc_post_sales_more_than_one_rep | BOOLEAN | Deprecated field |
-| sales_proc_prospecting_end_rule | INTEGER | Deprecated field |
-| sales_proc_prospecting_more_than_one_rep | BOOLEAN | Deprecated field |
-| sales_proc_sdr_did_prospecting | BOOLEAN | Deprecated field |
-| trueai_account_dupe_conf | STRING | Account's duplication confidence |
-| trueai_account_dupe_id | STRING | Account's duplication id |
-| trueai_account_is_master | BOOLEAN | Boolean flag that indicates whether the account is the master account in its group of duplicates |
-| trueai_added_on | DATETIME | Start date of the first step in the sales process |
-| trueai_addr_city | STRING | Record's city |
-| trueai_addr_country | STRING | Record's country |
-| trueai_addr_lat | FLOAT | Record's latitude |
-| trueai_addr_long | FLOAT | Record's longitude |
-| trueai_addr_postal_code | STRING | Record's postal code |
-| trueai_addr_rule | INTEGER | Record's address prediction rule |
-| trueai_addr_state | STRING | Record's state |
-| trueai_addr_street | STRING | Record's street |
-| trueai_churned_on | DATETIME | Date when the account churned |
-| trueai_company_size | STRING | Record's standardized company size |
-| trueai_company_size_num | INTEGER | Company size number of the account |
-| trueai_company_size_rule | INTEGER | Record's standardized company size prediction rule |
-| trueai_complt_accounts | FLOAT | Average TrueAI Completeness of Accounts |
-| trueai_complt_all | FLOAT | Overall Average TrueAI Completeness Across Entities |
-| trueai_complt_contacts | FLOAT | Average TrueAI Completeness of Contacts |
-| trueai_complt_leads | FLOAT | Average TrueAI Completeness of Leads |
-| trueai_complt_opps | FLOAT | Average TrueAI Completeness of Opps |
-| trueai_creator_id | STRING | Creator id of the first step in the sales process |
-| trueai_crm_complt_accounts | FLOAT | Average CRM Completeness of Accounts |
-| trueai_crm_complt_all | FLOAT | Overall Average CRM Completeness Across Entities |
-| trueai_crm_complt_contacts | FLOAT | Average CRM Completeness of Contacts |
-| trueai_crm_complt_leads | FLOAT | Average CRM Completeness of Leads |
-| trueai_crm_complt_opps | FLOAT | Average CRM Completeness of Opps |
-| trueai_curr_acv | CURRENCY | Current ACV of the account |
-| trueai_curr_step | INTEGER | Current step id |
-| trueai_curr_step_name | STRING | Current step name |
-| trueai_days_to_first_touch | INTEGER | Number of days from the start to the first touch |
-| trueai_first_amt | CURRENCY | Booking amount of the first opportunity won |
-| trueai_first_purchase | DATETIME | Close date of the first opportunity won |
-| trueai_first_touch | DATETIME | First time when the record was touched |
-| trueai_group | STRING | Group of the owner of the last step in the sales process |
-| trueai_industry | STRING | Record's standardized industry |
-| trueai_industry_conf | FLOAT | Record's standardized industry prediction confidence |
-| trueai_industry_rule | INTEGER | Record's standardized industry prediction rule |
-| trueai_last_outcome | STRING | Outcome of the last step in the sales process |
-| trueai_last_purchase | DATETIME | Close date of the last opportunity won |
-| trueai_last_touch | DATETIME | Last time when the record was touched |
-| trueai_latest_amt | CURRENCY | Booking amount of the last opportunity won |
-| trueai_leadsource | STRING | Record's standardized lead source |
-| trueai_leadsource_conf | FLOAT | Record's standardized lead source prediction confidence |
-| trueai_leadsource_is_inbound | BOOLEAN | Boolean flag that indicates whether the record's standardized lead source is inbound |
-| trueai_leadsource_rule | INTEGER | Record's standardized lead source prediction rule |
-| trueai_owner_id | STRING | Owner id of the last step in the sales process |
-| trueai_parent_name | STRING | Record's parent account name |
-| trueai_potential_acv | CURRENCY | Potential ACV of the account |
-| trueai_potential_acv_factor | FLOAT | Potential ACV factor of the account |
-| trueai_ssr_is_master | BOOLEAN | Boolean flag that indicates whether the account is the master account in its group of duplicates taking into account whether it has revenue |
-| trueai_tot_amt | CURRENCY | Sum of the booking amounts of all the opportunities won |
-| trueai_tot_length_in_days | INTEGER | Number of days since the start of the first step until the end of the last step in the sales process |
-| trueai_tot_pipeline_amt | CURRENCY | Sum of the booking amounts of opportunities created |
-| trueai_tot_purchases | INTEGER | Number of opportunities won |
-| trueai_tot_steps | INTEGER | Number of steps in the sales process |
-| trueai_type | STRING | Record's standardized type |
-| trueai_type_rule | INTEGER | Record's standardized type rule |
+| Entity | Field Name | Display Name | Data Type | Field Length | Description | Deprecated | Field Name Sfdc | Field Name Msdyn |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| ssr | _sys_as_of | As of Date | DATETIME |  | The date of the last data request from the platform | false |  |  |
+| ssr | _sys_doc_id | Doc ID | STRING | 50 | Unique record identifier, based on the ID of the document in the remote system (such as Salesforce ID) | false |  |  |
+| ssr | _sys_filt_end_date | Filter End Date | DATE |  | The end date of the record, stripped of time | false |  |  |
+| ssr | _sys_filt_start_date | Filter Start Date | DATE |  | The start date of the record, stripped of time | false |  |  |
+| ssr | crm_account_count | CRM Total Accounts | INTEGER |  | Number of accounts related to the sales process | false |  |  |
+| ssr | crm_account_custom_value_1 | CRM Account Custom Value 1 | STRING | 150 | Custom categorical variable on the account | false |  |  |
+| ssr | crm_account_custom_value_2 | CRM Account Custom Value 2 | STRING | 150 | Custom categorical variable on the account | false |  |  |
+| ssr | crm_account_custom_value_3 | CRM Account Custom Value 3 | STRING | 150 | Custom categorical variable on the account | false |  |  |
+| ssr | crm_act_count | CRM Total Activities | INTEGER |  | Number of activities related to the sales process | false |  |  |
+| ssr | crm_contact_count | CRM Total Contacts | INTEGER |  | Number of contacts related to the sales process | false |  |  |
+| ssr | crm_custom_value_1 | CRM Lead or Account Custom Value 1 | STRING | 150 | Custom categorical variable | false |  |  |
+| ssr | crm_custom_value_2 | CRM Lead or Account Custom Value 2 | STRING | 150 | Custom categorical variable | false |  |  |
+| ssr | crm_custom_value_3 | CRM Lead or Account Custom Value 3 | STRING | 150 | Custom categorical variable | false |  |  |
+| ssr | crm_industry | CRM Industry | STRING | 500 | Account's industry | false |  |  |
+| ssr | crm_lead_count | CRM Total Leads | INTEGER |  | Number of leads related to the sales process | false |  |  |
+| ssr | crm_leadsource | CRM Leadsource | STRING | 150 | Account's leadsource | false |  |  |
+| ssr | crm_name | CRM Name | STRING | 500 | Account's name | false |  |  |
+| ssr | crm_num_employees | CRM Num Employees | INTEGER |  | Account's number of employees | false |  |  |
+| ssr | crm_opp_count | CRM Total Opps | INTEGER |  | Number of opportunities related to the sales process | false |  |  |
+| ssr | crm_owner_id | CRM Owner ID | STRING | 50 | Account owner's id in the CRM | false |  |  |
+| ssr | crm_parent_id | CRM Parent ID | STRING | 50 | Account's parent id in the CRM | false |  |  |
+| ssr | crm_type | CRM Type | STRING | 150 | Account's type in the CRM | false |  |  |
+| ssr | crm_web_url | CRM Weburl | STRING | 150 | Account's URL in the CRM | false |  |  |
+| ssr | sales_proc_account_prospecting | Deprecated field | BOOLEAN |  | Deprecated field | true |  |  |
+| ssr | sales_proc_ae_did_new_logo | Deprecated field | BOOLEAN |  | Deprecated field | true |  |  |
+| ssr | sales_proc_am_did_post_sales | Deprecated field | BOOLEAN |  | Deprecated field | true |  |  |
+| ssr | sales_proc_determinable | Deprecated field | BOOLEAN |  | Deprecated field | true |  |  |
+| ssr | sales_proc_handoffs | Deprecated field | STRING | 50 | Deprecated field | true |  |  |
+| ssr | sales_proc_mgr_involved | Deprecated field | BOOLEAN |  | Deprecated field | true |  |  |
+| ssr | sales_proc_mkt_did_lead_gen | Deprecated field | BOOLEAN |  | Deprecated field | true |  |  |
+| ssr | sales_proc_multiple_reps_per_stage | Deprecated field | BOOLEAN |  | Deprecated field | true |  |  |
+| ssr | sales_proc_new_logo_more_than_one_rep | Deprecated field | BOOLEAN |  | Deprecated field | true |  |  |
+| ssr | sales_proc_post_sales_more_than_one_rep | Deprecated field | BOOLEAN |  | Deprecated field | true |  |  |
+| ssr | sales_proc_prospecting_end_rule | Deprecated field | INTEGER |  | Deprecated field | true |  |  |
+| ssr | sales_proc_prospecting_more_than_one_rep | Deprecated field | BOOLEAN |  | Deprecated field | true |  |  |
+| ssr | sales_proc_sdr_did_prospecting | Deprecated field | BOOLEAN |  | Deprecated field | true |  |  |
+| ssr | trueai_account_dupe_conf | Account Duplicate Confidence | STRING | 50 | Account's duplication confidence | false |  |  |
+| ssr | trueai_account_dupe_id | Account Duplicate ID | STRING | 50 | Account's duplication id | false |  |  |
+| ssr | trueai_account_is_master | Account Is Master | BOOLEAN |  | Boolean flag that indicates whether the account is the master account in its group of duplicates | false |  |  |
+| ssr | trueai_added_on | Added On | DATETIME |  | Start date of the first step in the sales process | false |  |  |
+| ssr | trueai_addr_city | Address City | STRING | 50 | Record's city | false |  |  |
+| ssr | trueai_addr_country | Address Country | STRING | 50 | Record's country | false |  |  |
+| ssr | trueai_addr_lat | Address Lat | FLOAT |  | Record's latitude | false |  |  |
+| ssr | trueai_addr_long | Address Long | FLOAT |  | Record's longitude | false |  |  |
+| ssr | trueai_addr_postal_code | Address Postal Code | STRING | 50 | Record's postal code | false |  |  |
+| ssr | trueai_addr_rule | Address Rule | INTEGER |  | Record's address prediction rule | false |  |  |
+| ssr | trueai_addr_state | Address State | STRING | 50 | Record's state | false |  |  |
+| ssr | trueai_addr_street | Address Street | STRING | 50 | Record's street | false |  |  |
+| ssr | trueai_churned_on | Churned on | DATETIME |  | Date when the account churned | false |  |  |
+| ssr | trueai_company_size | Company Size | STRING | 50 | Record's standardized company size | false |  |  |
+| ssr | trueai_company_size_num | Company Size Num | INTEGER |  | Company size number of the account | false |  |  |
+| ssr | trueai_company_size_rule | Company Size Rule | INTEGER |  | Record's standardized company size prediction rule | false |  |  |
+| ssr | trueai_complt_accounts | Average TrueAI Completeness Accounts | FLOAT |  | Average TrueAI Completeness of Accounts | false |  |  |
+| ssr | trueai_complt_all | Overall Avg TrueAI Completeness | FLOAT |  | Overall Average TrueAI Completeness Across Entities | false |  |  |
+| ssr | trueai_complt_contacts | Average TrueAI Completeness Contacts | FLOAT |  | Average TrueAI Completeness of Contacts | false |  |  |
+| ssr | trueai_complt_leads | Average TrueAI Completeness Leads | FLOAT |  | Average TrueAI Completeness of Leads | false |  |  |
+| ssr | trueai_complt_opps | Average TrueAI Completeness Opps | FLOAT |  | Average TrueAI Completeness of Opps | false |  |  |
+| ssr | trueai_creator_id | Creator ID | STRING | 50 | Creator id of the first step in the sales process | false |  |  |
+| ssr | trueai_crm_complt_accounts | Average CRM Completeness Accounts | FLOAT |  | Average CRM Completeness of Accounts | false |  |  |
+| ssr | trueai_crm_complt_all | Overall Avg CRM Completeness | FLOAT |  | Overall Average CRM Completeness Across Entities | false |  |  |
+| ssr | trueai_crm_complt_contacts | Average CRM Completeness Contacts | FLOAT |  | Average CRM Completeness of Contacts | false |  |  |
+| ssr | trueai_crm_complt_leads | Average CRM Completeness Leads | FLOAT |  | Average CRM Completeness of Leads | false |  |  |
+| ssr | trueai_crm_complt_opps | Average CRM Completeness Opps | FLOAT |  | Average CRM Completeness of Opps | false |  |  |
+| ssr | trueai_curr_acv | Curr Acv | CURRENCY |  | Current ACV of the account | false |  |  |
+| ssr | trueai_curr_step | Current Step | INTEGER |  | Current step id | false |  |  |
+| ssr | trueai_curr_step_name | Current Step Name | STRING | 50 | Current step name | false |  |  |
+| ssr | trueai_days_to_first_touch | Days to First Touch | INTEGER |  | Number of days from the start to the first touch | false |  |  |
+| ssr | trueai_first_amt | First Amount | CURRENCY |  | Booking amount of the first opportunity won | false |  |  |
+| ssr | trueai_first_purchase | First Purchase | DATETIME |  | Close date of the first opportunity won | false |  |  |
+| ssr | trueai_first_touch | First Touch | DATETIME |  | First time when the record was touched | false |  |  |
+| ssr | trueai_group | Group | STRING | 50 | Group of the owner of the last step in the sales process | false |  |  |
+| ssr | trueai_industry | Industry | STRING | 50 | Record's standardized industry | false |  |  |
+| ssr | trueai_industry_conf | Industry Confidence | FLOAT |  | Record's standardized industry prediction confidence | false |  |  |
+| ssr | trueai_industry_rule | Industry Rule | INTEGER |  | Record's standardized industry prediction rule | false |  |  |
+| ssr | trueai_last_outcome | Last Outcome | STRING | 50 | Outcome of the last step in the sales process | false |  |  |
+| ssr | trueai_last_purchase | Last Purchase | DATETIME |  | Close date of the last opportunity won | false |  |  |
+| ssr | trueai_last_touch | Last Touch | DATETIME |  | Last time when the record was touched | false |  |  |
+| ssr | trueai_latest_amt | Latest Amount | CURRENCY |  | Booking amount of the last opportunity won | false |  |  |
+| ssr | trueai_leadsource | Lead Source | STRING | 50 | Record's standardized lead source | false |  |  |
+| ssr | trueai_leadsource_conf | Lead Source Confidence | FLOAT |  | Record's standardized lead source prediction confidence | false |  |  |
+| ssr | trueai_leadsource_is_inbound | Lead Source Is Inbound | BOOLEAN |  | Boolean flag that indicates whether the record's standardized lead source is inbound | false |  |  |
+| ssr | trueai_leadsource_rule | Lead Source Rule | INTEGER |  | Record's standardized lead source prediction rule | false |  |  |
+| ssr | trueai_owner_id | Owner ID | STRING | 50 | Owner id of the last step in the sales process | false |  |  |
+| ssr | trueai_parent_name | Type | STRING | 50 | Record's parent account name | false |  |  |
+| ssr | trueai_potential_acv | Potential Acv | CURRENCY |  | Potential ACV of the account | false |  |  |
+| ssr | trueai_potential_acv_factor | Potential Acv Factor | FLOAT |  | Potential ACV factor of the account | false |  |  |
+| ssr | trueai_ssr_is_master | SSR Is Master | BOOLEAN |  | Boolean flag that indicates whether the account is the master account in its group of duplicates taking into account whether it has revenue | false |  |  |
+| ssr | trueai_tot_amt | Total Amount | CURRENCY |  | Sum of the booking amounts of all the opportunities won | false |  |  |
+| ssr | trueai_tot_length_in_days | Total Days | INTEGER |  | Number of days since the start of the first step until the end of the last step in the sales process | false |  |  |
+| ssr | trueai_tot_pipeline_amt | Total Pipeline Amount | CURRENCY |  | Sum of the booking amounts of opportunities created | false |  |  |
+| ssr | trueai_tot_purchases | Total Purchases | INTEGER |  | Number of opportunities won | false |  |  |
+| ssr | trueai_tot_steps | Total Steps | INTEGER |  | Number of steps in the sales process | false |  |  |
+| ssr | trueai_type | Type | STRING | 50 | Record's standardized type | false |  |  |
+| ssr | trueai_type_rule | Type Rule | INTEGER |  | Record's standardized type rule | false |  |  |

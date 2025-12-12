@@ -9,6 +9,9 @@ const config = {
   organizationName: 'cienai',
   projectName: 'cien-api-documentation',
 
+  // Avoid GitHub Pages trailing slash redirects and relative link issues
+  trailingSlash: false,
+
   themeConfig: {
     navbar: {
       title: '', // 👈 remove text title (logo-only look)

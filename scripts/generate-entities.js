@@ -1,132 +1,91 @@
-/**
- * Generate entity documentation pages from a CSV file
- *
- * Usage:
- *   node scripts/generate-entities.js metadata_fields.csv
- */
+const fs = require('fs');
+const path = require('path');
+const csv = require('csv-parser');
 
-import fs from 'fs';
-import path from 'path';
-import csv from 'csv-parser';
+// ---------- CONFIG ----------
+const DOCS_DIR = path.resolve('docs/entities');
+// Default CSV lives under the workspace's data/ directory
+const DEFAULT_CSV = path.join('data', 'metadata_fields.csv');
 
-// -----------------------------
-// 1. Validate input
-// -----------------------------
-const inputFile = process.argv[2];
-
-if (!inputFile) {
-  console.error('❌ Please provide a CSV file');
-  console.error('Usage: node scripts/generate-entities.js <csv-file>');
-  process.exit(1);
+// ---------- HELPERS ----------
+function slugify(str) {
+  // Lowercase, trim, and replace any non-alphanumeric with single dashes
+  return str
+    .trim()
+    .toLowerCase()
+    // Keep underscores to avoid breaking existing doc routes; replace other
+    // non-alphanumerics with single dashes.
+    .replace(/[^a-z0-9_]+/g, '-')
+    .replace(/^-+|-+$/g, '');
 }
 
-const csvPath = path.resolve(inputFile);
+function humanize(str) {
+  return str
+    .replace(/_/g, ' ')
+    .replace(/\b\w/g, c => c.toUpperCase());
+}
+
+function escapeMd(value) {
+  if (value === null || value === undefined) return '';
+  return String(value).replace(/\|/g, '\\|');
+}
+
+// ---------- MAIN ----------
+const csvFile = process.argv[2] || DEFAULT_CSV;
+const csvPath = path.resolve(csvFile);
 
 if (!fs.existsSync(csvPath)) {
   console.error(`❌ CSV file not found: ${csvPath}`);
   process.exit(1);
 }
 
-// -----------------------------
-// 2. Output directory
-// -----------------------------
-const OUTPUT_ROOT = path.resolve('docs/entities');
-
-// Ensure base directory exists
-fs.mkdirSync(OUTPUT_ROOT, { recursive: true });
-
-// -----------------------------
-// 3. Load CSV
-// -----------------------------
-const rows = [];
+const rowsByEntity = {};
 
 fs.createReadStream(csvPath)
   .pipe(csv())
   .on('data', (row) => {
-    rows.push(row);
+    const entity = slugify(row.entity || row.table || '');
+    if (!entity) return;
+
+    rowsByEntity[entity] ??= [];
+    rowsByEntity[entity].push(row);
   })
   .on('end', () => {
-    console.log(`✔ Loaded ${rows.length} rows`);
-    generateDocs(rows);
-  });
+    Object.entries(rowsByEntity).forEach(([entity, rows]) => {
+      const entityDir = path.join(DOCS_DIR, entity);
+      fs.mkdirSync(entityDir, { recursive: true });
 
-// -----------------------------
-// 4. Generate entity pages
-// -----------------------------
-function generateDocs(rows) {
-  // Group rows by entity name
-  const entities = {};
+      const headers = Object.keys(rows[0]);
 
-  for (const row of rows) {
-    const entity =
-      row.Entity ||
-      row.entity ||
-      row.table ||
-      row.Table ||
-      row.ENTITY;
-
-    if (!entity) continue;
-
-    if (!entities[entity]) {
-      entities[entity] = [];
-    }
-
-    entities[entity].push(row);
-  }
-
-  // Generate markdown for each entity
-  for (const [entityName, fields] of Object.entries(entities)) {
-    writeEntityDoc(entityName, fields);
-  }
-
-  console.log(`✔ Generated ${Object.keys(entities).length} entity pages`);
-}
-
-// -----------------------------
-// 5. Write single entity page
-// -----------------------------
-function writeEntityDoc(entityName, fields) {
-  const slug = entityName.toLowerCase();
-  const entityDir = path.join(OUTPUT_ROOT, slug);
-
-  fs.mkdirSync(entityDir, { recursive: true });
-
-  const filePath = path.join(entityDir, 'index.md');
-
-  const markdown = generateMarkdown(entityName, fields);
-
-  fs.writeFileSync(filePath, markdown, 'utf8');
-
-  console.log(`✔ docs/entities/${slug}/index.md`);
-}
-
-// -----------------------------
-// 6. Markdown template
-// -----------------------------
-function generateMarkdown(entityName, fields) {
-  const rows = fields
-    .map((f) => {
-      const name = f.field_name || f.Field || '';
-      const type = f.data_type || f.Type || '';
-      const description = f.description || f.Description || '';
-      return `| ${name} | ${type} | ${description} |`;
-    })
-    .join('\n');
-
-  return `---
-title: ${entityName}
+      const frontMatter = `---
+title: ${entity}
 ---
 
-## ${entityName}
-
-This entity represents **${entityName}** records in the Cien platform.
-
----
-
-## Fields
-
-| Field | Type | Description |
-|------|------|-------------|
-${rows}
+This entity represents **${entity}** records in the Cien platform.
 `;
-}
+
+      // Do NOT include a trailing newline at the end of the header separator row,
+      // otherwise we end up with a blank line before the first table row which
+      // breaks Markdown table rendering in some engines (e.g., Docusaurus).
+      const tableHeader =
+        `## Fields\n\n` +
+        `| ${headers.map(h => humanize(h)).join(' | ')} |\n` +
+        `| ${headers.map(() => '---').join(' | ')} |`;
+
+      const tableRows = rows
+        .map(row => `| ${headers.map(h => escapeMd(row[h])).join(' | ')} |`)
+        .join('\n');
+
+      const content = [
+        frontMatter,
+        tableHeader,
+        tableRows,
+        '',
+      ].join('\n');
+
+      fs.writeFileSync(path.join(entityDir, 'index.md'), content);
+      console.log(`✅ Generated: ${entity}`);
+    });
+
+    console.log('\n🎉 Entity generation complete.');
+  });
