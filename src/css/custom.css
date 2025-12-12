@@ -37,17 +37,15 @@
   height: 28px;
 }
 
-/* Force hamburger (mobile) navigation on desktop: hide left items, keep right items (search), show toggle */
-@media screen and (min-width: 996px) {
-  .navbar__items--left {
-    display: none;
-  }
-  .navbar__toggle {
-    display: inline-flex;
-  }
-  .navbar__items--right {
-    display: inline-flex;
-  }
+/* Always use hamburger: hide inline left nav, show toggle, keep right items (search) visible */
+.navbar__items--left {
+  display: none !important;
+}
+.navbar__toggle {
+  display: inline-flex !important;
+}
+.navbar__items--right {
+  display: inline-flex;
 }
 
 /* Docs page: make tables more compact and use full width */
