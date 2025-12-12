@@ -40,9 +40,13 @@ if (!fs.existsSync(csvPath)) {
 }
 
 const rowsByEntity = {};
+let globalHeaderOrder = null; // preserve CSV header order
 
 fs.createReadStream(csvPath)
   .pipe(csv())
+  .on('headers', (headers) => {
+    globalHeaderOrder = headers;
+  })
   .on('data', (row) => {
     const entity = slugify(row.entity || row.table || '');
     if (!entity) return;
@@ -55,7 +59,11 @@ fs.createReadStream(csvPath)
       const entityDir = path.join(DOCS_DIR, entity);
       fs.mkdirSync(entityDir, { recursive: true });
 
-      const headers = Object.keys(rows[0]);
+      // Build union of all headers for this entity and keep CSV global order.
+      const headersSet = new Set();
+      rows.forEach(r => Object.keys(r).forEach(h => headersSet.add(h)));
+      const headers = (globalHeaderOrder || Array.from(headersSet))
+        .filter(h => headersSet.has(h));
 
   const frontMatter = `---
 title: ${entity}
