@@ -40,6 +40,15 @@ export default function Home() {
             Rules
           </Link>
         </div>
+
+        {/* Banner above footer */}
+        <div style={{ marginTop: '3rem' }}>
+          <img
+            src={useBaseUrl('img/cien_banner.png')}
+            alt="Cien banner"
+            style={{ maxWidth: 1200, width: '100%', height: 'auto' }}
+          />
+        </div>
       </main>
     </Layout>
   );
