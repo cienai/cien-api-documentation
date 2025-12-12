@@ -35,6 +35,11 @@ async function extractTextFromPdf(pdfPath, startPage = 3, endPage = 34) {
 
     const cleaned = pageLines
       .map((line) => line.replace(/\s+/g, ' ').trim())
+      .map((line) => line
+        // Escape any angle brackets to avoid MDX interpreting HTML/JSX
+        .replaceAll('<', '&lt;')
+        .replaceAll('>', '&gt;')
+      )
       .filter((line) => line.length > 0);
 
     chunks.push(`\n\n${cleaned.join('\n')}`);

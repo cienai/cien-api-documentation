@@ -141,7 +141,7 @@ as AE
 INNER JOIN users AS u -- link in users
 ON AE.trueai_creator_id = U._sys_doc_id -- look up the doc id (when available, use the trueai vs. the CRM
 field)
-WHERE AE.crm_createdon > U._sys_asof -90 -- get in the last 90 days since last data refresh
+WHERE AE.crm_createdon &gt; U._sys_asof -90 -- get in the last 90 days since last data refresh
 GROUP BY AE.entity, U.trueai_user_role_dept -- group by entity and dept
 ORDER BY 1,2; -- sort entities together
 -------------------
@@ -335,7 +335,7 @@ avg_am_act_capture_level -- what do they log?
 FROM users_history AS UH -- use the user history entity to get past data
 INNER JOIN users AS U -- link w/ current user list
 ON U._sys_doc_id = UH._sys_user_id -- always link via primary key _sys_doc_id
-AND UH._sys_filt_end_date > U._sys_asof - 90 -- look at the last 90 days
+AND UH._sys_filt_end_date &gt; U._sys_asof - 90 -- look at the last 90 days
 AND U.trueai_termination_date is null -- do not include reps that were terminated
 GROUP BY U.trueai_group -- breakdown by group (ND is the default group)
 ORDER BY 1; -- sort the group
@@ -482,8 +482,8 @@ supplied.
 Example SQL
 SELECT -- just the last 5 years
 Year,
-COUNT(DISTINCT CASE WHEN date_part('year', trueai_first_purchase) < Y.year AND
-COALESCE(date_part('year', trueai_churned_on),2100) >= Y.year THEN _sys_doc_id END) as boy_customers, --
+COUNT(DISTINCT CASE WHEN date_part('year', trueai_first_purchase) &lt; Y.year AND
+COALESCE(date_part('year', trueai_churned_on),2100) &gt;= Y.year THEN _sys_doc_id END) as boy_customers, --
 get the beginning of year customers
 COUNT(DISTINCT CASE WHEN date_part('year', trueai_first_purchase) = Y.year THEN _sys_doc_id END) as
 new_customers, -- who bought for the first time
@@ -492,12 +492,12 @@ churned_customers, -- who stopped buying this year
 COUNT(DISTINCT CASE WHEN date_part('year', trueai_first_purchase) = Y.year THEN _sys_doc_id END) -
 COUNT(DISTINCT CASE WHEN date_part('year', trueai_churned_on) = Y.year THEN _sys_doc_id END) as
 net_new_customers, -- diff between new and lost
-COUNT(DISTINCT CASE WHEN date_part('year', trueai_first_purchase) <= Y.year AND
-COALESCE(date_part('year', trueai_churned_on),2100) > Y.year THEN _sys_doc_id END) as eoy_customers, --
+COUNT(DISTINCT CASE WHEN date_part('year', trueai_first_purchase) &lt;= Y.year AND
+COALESCE(date_part('year', trueai_churned_on),2100) &gt; Y.year THEN _sys_doc_id END) as eoy_customers, --
 customers at the end of the year
 COUNT(DISTINCT CASE WHEN date_part('year', trueai_churned_on) = Y.year THEN _sys_doc_id END) / CAST(1 +
-COUNT(DISTINCT CASE WHEN date_part('year', trueai_first_purchase) < Y.year AND
-COALESCE(date_part('year', trueai_churned_on),2100) >= Y.year THEN _sys_doc_id END) as float) as
+COUNT(DISTINCT CASE WHEN date_part('year', trueai_first_purchase) &lt; Y.year AND
+COALESCE(date_part('year', trueai_churned_on),2100) &gt;= Y.year THEN _sys_doc_id END) as float) as
 churn_rate -- churn rate is boy / churned
 FROM ssr S -- use SSR
 CROSS JOIN (
@@ -569,8 +569,8 @@ END ) as upselling_predicted_opp_win_amount -- win rate times amount for upselli
 FROM ssr AS S
 INNER JOIN ssr_history AS SH
 ON S._sys_doc_id = SH._sys_ssr_id
-WHERE date_part('year', SH._sys_filt_end_date) >= date_part('year', SH._sys_asof) -2 AND
-date_part('year', SH._sys_filt_end_date) < date_part('year', SH._sys_asof) -- look at the last 2 full
+WHERE date_part('year', SH._sys_filt_end_date) &gt;= date_part('year', SH._sys_asof) -2 AND
+date_part('year', SH._sys_filt_end_date) &lt; date_part('year', SH._sys_asof) -- look at the last 2 full
 years
 AND (S.trueai_account_is_master = 'true' OR S.trueai_account_is_master is Null)
 AND SH.step_name in ('Prospecting', 'Post Sales Support') -- we're only interested in the steps where
@@ -751,9 +751,9 @@ SUM(opp_won_amt) as sum_sales, -- get the sum of sales
 COUNT(DISTINCT _sys_ssr_id) as customer_count, -- get # of buying customers
 AVG(opp_won_amt) as avg_sale_per_customer, -- get avg rev per account
 MAX(opp_won_amt) as biggest_customer_amt, -- get size of biggest account
-COUNT(DISTINCT CASE WHEN cumul_by_cust_size <= (total_won * 0.8) THEN _sys_ssr_id END) as
+COUNT(DISTINCT CASE WHEN cumul_by_cust_size &lt;= (total_won * 0.8) THEN _sys_ssr_id END) as
 eighty_pct_revenue_customer_count, -- include all up to 80% of rev to get pareto number
-COUNT(DISTINCT CASE WHEN cumul_by_cust_size <= (total_won * 0.8) THEN _sys_ssr_id END) /
+COUNT(DISTINCT CASE WHEN cumul_by_cust_size &lt;= (total_won * 0.8) THEN _sys_ssr_id END) /
 CAST(COUNT(DISTINCT _sys_ssr_id) as decimal) as eighty_pct_revenue_customer_percentage -- percentage of
 pareto number
 FROM -- second agg to do the rankings
@@ -777,9 +777,9 @@ MAX(_sys_filt_end_date) as _sys_filt_end_date, -- get the highest date for a pur
 _sys_ssr_id, -- get the unique account
 SUM(SH.opp_won_amt) as opp_won_amt -- sum up all purchases of that account
 FROM ssr_history SH
-WHERE SH.opp_won_amt > 0 -- only care about clients that bought
-AND date_part('year', SH._sys_filt_end_date) >= date_part('year', SH._sys_asof)-5 -- go back 5 years
-AND date_part('year', SH._sys_filt_end_date) < date_part('year', SH._sys_asof) -- exclude current
+WHERE SH.opp_won_amt &gt; 0 -- only care about clients that bought
+AND date_part('year', SH._sys_filt_end_date) &gt;= date_part('year', SH._sys_asof)-5 -- go back 5 years
+AND date_part('year', SH._sys_filt_end_date) &lt; date_part('year', SH._sys_asof) -- exclude current
 partial year
 GROUP BY date_part('year', SH._sys_filt_end_date), SH._sys_ssr_id -- group by account
 ) as SH_by_account -- first agg
@@ -859,8 +859,8 @@ FROM hat_leads AS HL -- use hat_leads instead of SSR to look at the prospecting 
 (ssr_history has 3 steps)
 INNER JOIN users AS U -- link in users to understand creator role
 ON HL.trueai_creator_id = U._sys_doc_id -- always _sys_doc_id is PK
-WHERE date_part('year', HL._sys_filt_start_date) > date_part('year', HL._sys_asof) - 2 -- look back 1 year
-AND date_part('year', HL._sys_filt_start_date) <> date_part('year', HL._sys_asof) -- do not include
+WHERE date_part('year', HL._sys_filt_start_date) &gt; date_part('year', HL._sys_asof) - 2 -- look back 1 year
+AND date_part('year', HL._sys_filt_start_date) &lt;&gt; date_part('year', HL._sys_asof) -- do not include
 current partial year
 GROUP BY date_part('year', HL._sys_filt_start_date), date_part('quarter', HL._sys_filt_start_date) -- group
 by year and quarter
@@ -933,45 +933,45 @@ multiple signals that a user is terminated – e.g. no logins or no activities i
 Example SQL
 SELECT
 Y.year as year, -- the year
-COUNT(DISTINCT CASE WHEN date_part('year', U.trueai_hire_date) < Y.year AND date_part('year',
-COALESCE(U.trueai_termination_date, make_date(2100, 1,1))) >= Y.Year THEN U._sys_doc_id END) as
+COUNT(DISTINCT CASE WHEN date_part('year', U.trueai_hire_date) &lt; Y.year AND date_part('year',
+COALESCE(U.trueai_termination_date, make_date(2100, 1,1))) &gt;= Y.Year THEN U._sys_doc_id END) as
 sales_user_count_boy, -- users in the beginning of the year
 COUNT(DISTINCT CASE WHEN date_part('year', U.trueai_hire_date) = Y.year THEN U._sys_doc_id END) as
 sales_user_hired, -- count of hired
 COUNT(DISTINCT CASE WHEN date_part('year', COALESCE(U.trueai_termination_date, make_date(2100, 1,1))) =
 Y.year THEN U._sys_doc_id END)* -1 as sales_user_terminated, -- count of terminated (turn into neg
 number)
-COUNT(DISTINCT CASE WHEN date_part('year', U.trueai_hire_date) <= Y.year AND date_part('year',
-COALESCE(U.trueai_termination_date, make_date(2100, 1,1))) > Y.Year THEN U._sys_doc_id END) as
+COUNT(DISTINCT CASE WHEN date_part('year', U.trueai_hire_date) &lt;= Y.year AND date_part('year',
+COALESCE(U.trueai_termination_date, make_date(2100, 1,1))) &gt; Y.Year THEN U._sys_doc_id END) as
 sales_user_count_eoy, -- end of year count, should match next year boy
-COUNT(DISTINCT CASE WHEN U.trueai_user_role_function = 'AE' AND date_part('year', U.trueai_hire_date) <=
-Y.year AND date_part('year', COALESCE(U.trueai_termination_date, make_date(2100, 1,1))) > Y.Year THEN
+COUNT(DISTINCT CASE WHEN U.trueai_user_role_function = 'AE' AND date_part('year', U.trueai_hire_date) &lt;=
+Y.year AND date_part('year', COALESCE(U.trueai_termination_date, make_date(2100, 1,1))) &gt; Y.Year THEN
 U._sys_doc_id END) as ae_count_eoy, -- account execs s at end of year (use user_role_function field
 instead of user_role to simplify query)
-COUNT(DISTINCT CASE WHEN U.trueai_user_role_function = 'AM' AND date_part('year', U.trueai_hire_date) <=
-Y.year AND date_part('year', COALESCE(U.trueai_termination_date, make_date(2100, 1,1))) > Y.Year THEN
+COUNT(DISTINCT CASE WHEN U.trueai_user_role_function = 'AM' AND date_part('year', U.trueai_hire_date) &lt;=
+Y.year AND date_part('year', COALESCE(U.trueai_termination_date, make_date(2100, 1,1))) &gt; Y.Year THEN
 U._sys_doc_id END) as am_count_eoy,-- account managers at end of year (use user_role_function field
 instead of user_role to simplify query)
 COUNT(DISTINCT CASE WHEN U.trueai_user_role_function = 'SDR' AND date_part('year', U.trueai_hire_date)
-<= Y.year AND date_part('year', COALESCE(U.trueai_termination_date, make_date(2100, 1,1))) > Y.Year
+&lt;= Y.year AND date_part('year', COALESCE(U.trueai_termination_date, make_date(2100, 1,1))) &gt; Y.Year
 THEN U._sys_doc_id END) as sdr_count_eoy,-- sales development reps at end of year (use
 user_role_function field instead of user_role to simplify query)
 COUNT(DISTINCT CASE WHEN U.trueai_user_role_function = 'MGMT' AND date_part('year', U.trueai_hire_date)
-<= Y.year AND date_part('year', COALESCE(U.trueai_termination_date, make_date(2100, 1,1))) > Y.Year
+&lt;= Y.year AND date_part('year', COALESCE(U.trueai_termination_date, make_date(2100, 1,1))) &gt; Y.Year
 THEN U._sys_doc_id END) as mgmt_count_eoy,-- managers at end of year (use user_role_function field
 instead of user_role to simplify query)
 Copyright © 2023 - Cien, Inc. - All Rights Reserved. 30
 
 
 COUNT(DISTINCT CASE WHEN U.trueai_user_role_function = 'OTHER' AND date_part('year', U.trueai_hire_date)
-<= Y.year AND date_part('year', COALESCE(U.trueai_termination_date, make_date(2100, 1,1))) > Y.Year
+&lt;= Y.year AND date_part('year', COALESCE(U.trueai_termination_date, make_date(2100, 1,1))) &gt; Y.Year
 THEN U._sys_doc_id END) as other_count_eoy,-- others (e.g. sales engineers) at end of year (use
 user_role_function field instead of user_role to simplify query)
-COUNT(DISTINCT CASE WHEN date_part('year', U.trueai_hire_date) <= Y.year AND date_part('year',
-COALESCE(U.trueai_termination_date, make_date(2100, 1,1))) > Y.Year THEN U._sys_doc_id END) /
+COUNT(DISTINCT CASE WHEN date_part('year', U.trueai_hire_date) &lt;= Y.year AND date_part('year',
+COALESCE(U.trueai_termination_date, make_date(2100, 1,1))) &gt; Y.Year THEN U._sys_doc_id END) /
 CAST(COUNT(DISTINCT CASE WHEN U.trueai_user_role_function = 'MGMT' AND date_part('year',
-U.trueai_hire_date) <= Y.year AND date_part('year', COALESCE(U.trueai_termination_date, make_date(2100,
-1,1))) > Y.Year THEN U._sys_doc_id END) as decimal) as rep_mgr_ratio_eoy
+U.trueai_hire_date) &lt;= Y.year AND date_part('year', COALESCE(U.trueai_termination_date, make_date(2100,
+1,1))) &gt; Y.Year THEN U._sys_doc_id END) as decimal) as rep_mgr_ratio_eoy
 FROM users as U -- get the user info
 CROSS JOIN (
 SELECT 2021 as year UNION
@@ -1032,11 +1032,11 @@ when a lead was actually touched. The trueai_first_touch fi eld gives you that i
 -------------------
 Example SQL
 SELECT
-CASE WHEN CAST( HL.trueai_first_touch - HL.trueai_createdon as float) > 7 THEN 'Over a week'
-WHEN CAST( HL.trueai_first_touch - HL.trueai_createdon as float) > 3 THEN 'Over three days'
-WHEN CAST( HL.trueai_first_touch - HL.trueai_createdon as float) > 1 THEN 'Over one day'
-WHEN CAST( HL.trueai_first_touch - HL.trueai_createdon as float) * 24 > 6 THEN 'Over 6 hours'
-WHEN CAST( HL.trueai_first_touch - HL.trueai_createdon as float) * 24 > 1 THEN 'Over 1 hour'
+CASE WHEN CAST( HL.trueai_first_touch - HL.trueai_createdon as float) &gt; 7 THEN 'Over a week'
+WHEN CAST( HL.trueai_first_touch - HL.trueai_createdon as float) &gt; 3 THEN 'Over three days'
+WHEN CAST( HL.trueai_first_touch - HL.trueai_createdon as float) &gt; 1 THEN 'Over one day'
+WHEN CAST( HL.trueai_first_touch - HL.trueai_createdon as float) * 24 &gt; 6 THEN 'Over 6 hours'
+WHEN CAST( HL.trueai_first_touch - HL.trueai_createdon as float) * 24 &gt; 1 THEN 'Over 1 hour'
 ELSE 'Within Minutes' END as time_to_touch_bucket, -- derived bucket
 AVG(CAST( HL.trueai_first_touch - HL.trueai_createdon as float) ) * 24 as avg_hours, -- time in hours
 count(HL.trueai_first_touch) as touched_leads, -- total touched leads
@@ -1049,14 +1049,14 @@ and/or accounts from a single company
 WHERE HL._sys_filt_end_date BETWEEN HL._sys_asof - 180 AND HL._sys_asof - 90 -- let's only look at the
 last 90 days
 AND HL.trueai_leadsource_is_inbound = 'true' -- we're only interested in inbound leads coming to us
-AND CAST( HL.trueai_first_touch - HL.trueai_createdon as float) < 21 -- there are leads that are not
+AND CAST( HL.trueai_first_touch - HL.trueai_createdon as float) &lt; 21 -- there are leads that are not
 touched for over 3 weeks - let's exclude those
 GROUP BY
-CASE WHEN CAST( HL.trueai_first_touch - HL.trueai_createdon as float) > 7 THEN 'Over a week'
-WHEN CAST( HL.trueai_first_touch - HL.trueai_createdon as float) > 3 THEN 'Over three days'
-WHEN CAST( HL.trueai_first_touch - HL.trueai_createdon as float) > 1 THEN 'Over one day'
-WHEN CAST( HL.trueai_first_touch - HL.trueai_createdon as float) * 24 > 6 THEN 'Over 6 hours'
-WHEN CAST( HL.trueai_first_touch - HL.trueai_createdon as float) * 24 > 1 THEN 'Over 1 hour'
+CASE WHEN CAST( HL.trueai_first_touch - HL.trueai_createdon as float) &gt; 7 THEN 'Over a week'
+WHEN CAST( HL.trueai_first_touch - HL.trueai_createdon as float) &gt; 3 THEN 'Over three days'
+WHEN CAST( HL.trueai_first_touch - HL.trueai_createdon as float) &gt; 1 THEN 'Over one day'
+WHEN CAST( HL.trueai_first_touch - HL.trueai_createdon as float) * 24 &gt; 6 THEN 'Over 6 hours'
+WHEN CAST( HL.trueai_first_touch - HL.trueai_createdon as float) * 24 &gt; 1 THEN 'Over 1 hour'
 ELSE 'Within Minutes' END -- great a derived category field and group by it
 ORDER BY avg_hours DESC; -- sort by slowest response first
 -------------------
