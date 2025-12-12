@@ -37,6 +37,16 @@
   height: 28px;
 }
 
+/* Force hamburger (mobile) navigation on desktop: hide items, show toggle */
+@media screen and (min-width: 996px) {
+  .navbar__items {
+    display: none;
+  }
+  .navbar__toggle {
+    display: inline-flex;
+  }
+}
+
 /* Docs page: make tables more compact and use full width */
 .theme-doc-markdown table {
   font-size: 0.9rem;

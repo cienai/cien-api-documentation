@@ -14,7 +14,11 @@ const config = {
 
   themeConfig: {
     navbar: {
-      title: '', // no text title, and no logo to avoid broken image link
+      title: '',
+      logo: {
+        alt: 'Cien',
+        src: 'img/logo.svg',
+      },
       items: [
         { type: 'doc', docId: 'intro', position: 'left', label: 'Get started' },
         { type: 'doc', docId: 'examples', position: 'left', label: 'Examples' },
