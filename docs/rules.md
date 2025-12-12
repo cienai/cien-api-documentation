@@ -21,7 +21,6 @@ user_role_function SDR
 user_role_function SDR
 user_role_function MGMT
 ^ Top
-Copyright © 2023 - Cien, Inc. - All Rights Reserved. 213
 RULES
 rule_list
 The rule codes and descriptions for the platform, primarily related to how the SSR history fi le is organized.
@@ -69,7 +68,6 @@ becomes the end date
 AccountsCreatedo
 n
 END_ACCOUNTS_FIRST_OPPS_CREATEDON
-Copyright © 2023 - Cien, Inc. - All Rights Reserved. 214
 rule_list
 _sys_docid description model rule_name
 12 Contacts present before account
@@ -125,7 +123,6 @@ AccountsCloseDat
 e
 END_ACCOUNTS_NO_ACTIVITY_RECORDED
 _IN_CREATION_PLUS_180_DAYS
-Copyright © 2023 - Cien, Inc. - All Rights Reserved. 215
 rule_list
 _sys_docid description model rule_name
 25 Account is abandoned: no further
@@ -185,7 +182,6 @@ AccountsFirstTouc
 h
 END_ACCOUNTS_FIRST_ACTIVITY_RECORD
 ED
-Copyright © 2023 - Cien, Inc. - All Rights Reserved. 216
 rule_list
 _sys_docid description model rule_name
 38 No activities but account converted,
@@ -252,7 +248,6 @@ AccountsLastTouc
 h
 END_ACCOUNTS_NO_ACTIVITIES_BUT_DIS
 QUALIFIED
-Copyright © 2023 - Cien, Inc. - All Rights Reserved. 217
 rule_list
 _sys_docid description model rule_name
 51 No activities and account is not
@@ -310,7 +305,6 @@ SsrSsrHistory OUTCOME_PROSPECTING_ACTIVITY_RECO
 RDED
 63 Lead disquali fi ed SsrSsrHistory OUTCOME_LEAD_DISQUALIFIED
 64 Lead converted SsrSsrHistory OUTCOME_LEAD_CONVERTED
-Copyright © 2023 - Cien, Inc. - All Rights Reserved. 218
 rule_list
 _sys_docid description model rule_name
 65 Lead abandoned: no activities in 150
@@ -363,7 +357,6 @@ duration because owner activity
 capture level not present or too low
 SsrSsrHistory ADJUSTED_DURATION_NOT_ENOUGH_ACT
 IVITY_CAPTURE_LEVEL
-Copyright © 2023 - Cien, Inc. - All Rights Reserved. 219
 rule_list
 _sys_docid description model rule_name
 80 Adjusted duration based on expected
@@ -427,7 +420,6 @@ close date, becomes prospecting
 ActivitiesInteractio
 nPurpose
 BEFORE_HATLEAD_CLOSE_DATE
-Copyright © 2023 - Cien, Inc. - All Rights Reserved. 220
 rule_list
 _sys_docid description model rule_name
 90 Oppid present, activity performed
@@ -501,7 +493,6 @@ ActivitiesInteractio
 nPurpose
 NO_OPPID_NO_OPEN_OPPS_BUT_WON_O
 PPS
-Copyright © 2023 - Cien, Inc. - All Rights Reserved. 221
 rule_list
 _sys_docid description model rule_name
 100 Oppid absent, but activity performed
@@ -537,7 +528,6 @@ UsersHrInfo MATCHED_FULLNAME
 116 Exactly one value returned from a
 fuzzy match
 UsersGroup UNIQUE_FUZZY_MATCH
-Copyright © 2023 - Cien, Inc. - All Rights Reserved. 222
 rule_list
 _sys_docid description model rule_name
 117 More than one value returned from a
@@ -587,4 +577,3 @@ MEDIAN_COMPANY_SIZE_BASED_ON_DEFA
 ULT_350
 131 No account presetnt, only lead SsrType NO_ACCOUNT_EXISTS
 132 Account present, sales steps present SsrType SALES_STEPS_PRESENT
-Copyright © 2023 - Cien, Inc. - All Rights Reserved. 223

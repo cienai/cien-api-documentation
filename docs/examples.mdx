@@ -2,33 +2,6 @@
 title: Examples & Queries
 ---
 
-CIEN’S API
-## Overview
-What is the Cien.ai API?
-The Cien API allows developers to access the underlying data from Cien’s TrueAI platform, built to enable sales and marketing
-technology applications and analytics in
-completely new ways.
-## The TrueAI Platform
-Cien’s TrueAI platform enhances CRM data and
-provides transparency on the underpinnings and
-accuracy of its calculations. The API is able to
-provide insights regardless of your company’s
-CRM data quality. Duplicate data is fl agged.
-Natural Language Processing (NLP) models deal with inconsistent data. Incomplete data is enhanced from internal and external
-sources. We measure the accuracy of a customer’s CRM data and provide enhancements and annotations for superior analytics.
-API Speci fi cation
-Upon proper initialization of the API you will get cloud access to the data in the form
-of a zip fi le containing csv fi les with the below entities. These fi les can then be manlluy
-or automatically imported as per your requirements; into data warehouses, and/or to
-BI tools for integration into your analytic reports. Scripts for SQL Server, PostgresSQL,
-Snow fl ake & Spark are included.
-Upon request, there is a reference implementation on how Cien’s API can be used in
-the form of Cien’s TrueAI GTM Suite created in Power BI for . This can help you get
-started with your advanced GTM analytics project.
-## Support
-If you have any questions, please reach out to our technical developer support:
-api@cien.ai.
-Copyright © 2023 - Cien, Inc. - All Rights Reserved. 2
 ## API EXAMPLES
 To get you started and familiarize yourself with the Cien API, and the power of the TrueAI platform, we have created the
 following API examples written in PostgresSQL. These examples cover di ff erent aspects of the platform such as data cleaning
@@ -37,8 +10,7 @@ understanding of the company’s GTM performance and also familiarize yourself w
 ssr_history and users_history entities. Almost all common GTM questions can be answered with those. And in many cases
 you can simply change a grouping or condition to answer the speci fi c question you fi nd most pressing right now.
 As always, we are eager for your feedback. If you have suggestions for other examples or need help changing a question, feel
-free to contact our API support team: api@cien.ai.
-Copyright © 2023 - Cien, Inc. - All Rights Reserved. 3
+free to contact us.
 ^ Top
 ## Automatic Data Enhancement (ADE)
 ## Transparency on the Data Cleanup Process
@@ -50,7 +22,6 @@ ADE #3: Consistency & Con fi dence of Lead Source Consolidation
 ADE #4: Sales Process Steps in a Year Summary
 ADE #5: CRM Activity Compliance by Group & Role
 ADE #6: AI Prediction Quality
-Copyright © 2023 - Cien, Inc. - All Rights Reserved. 4
 ^ Top
 ADE #1: Lead Duplication (V.1.2)
 ## Purpose of Analysis
@@ -94,7 +65,6 @@ Enterprise SALES 7 0 0 0.00% 7 2 29%
 SMB SALES 14 0 0 0.00% 14 4 29%
 ND SALES 736 0 0 0.00% 736 93 13%
 ^ Top
-Copyright © 2023 - Cien, Inc. - All Rights Reserved. 5
 ADE #2: Lead & Account Completeness
 ## Purpose of Analysis
 Incomplete data is one of the most common data quality problems, which causes issues both for reps who need to spend
@@ -158,11 +128,9 @@ accounts MKT 3,384 0.57 1.00 0.74 0.51 0.58 0.63
 accounts ND 53 0.50 1.00 0.43 0.82 0.55 0.56
 accounts OPS 1,124 0.34 1.00 0.06 0.97 0.66 0.34
 accounts OTHER 10 0.73 1.00 0.75 0.90 0.63 0.77
-Copyright © 2023 - Cien, Inc. - All Rights Reserved. 6
 accounts SALES 537 0.49 1.00 0.44 0.76 0.53 0.54
 leads MKT 1,096 0.38 0.93 0.60 0.25 0.48 0.41
 ^ Top
-Copyright © 2023 - Cien, Inc. - All Rights Reserved. 7
 ADE #3: Consistency & Con fi dence of Lead Source Consolidation (V.1.2)
 ## Purpose of Analysis
 As data is added over multiple years, de fi nitions that originally were consistent and clear tend to become more inconsistent.
@@ -203,7 +171,6 @@ Zoom Info 75,999 List Upload 0.80356
 Internally Sourced 17,486 Rep Lead Gen 1.00000
 Purchased List 4,882 List Upload 1.00000
 Website Form 1,273 Website 0.99915
-Copyright © 2023 - Cien, Inc. - All Rights Reserved. 8
 ZoomInfo Prospecting 594 List Upload 0.99972
 ## Paid Social 447 Digital Ads 0.99999
 Tradeshow 415 Event/Tradeshow 1.00000
@@ -211,7 +178,6 @@ Organic Search 172 SEO 0.99999
 ### Sales Generated 172 Rep Lead Gen 1.00000
 Website Referral 151 Website 1.00000
 ^ Top
-Copyright © 2023 - Cien, Inc. - All Rights Reserved. 9
 ADE #4: Sales Process Steps in a Year Summary (V.1.2)
 ## Purpose of Analysis
 The key to improve sales performance is to be able to isolate where in the sales process there are ine ffi ciencies. The TrueAI
@@ -257,7 +223,6 @@ ORDER BY 1; -- sort by the logical order of the steps
 ## Sample Result
 There are 6 steps in the standardized sales process. The new logo success rate is slightly higher than the predicted rate,
 whereas the upselling win rate is slightly lower. The value intelligence value creation values add up to slightly more than total
-Copyright © 2023 - Cien, Inc. - All Rights Reserved. 10
 sale, to account for the repeat value of new accounts. As in almost all organizations, the e ff ort of selling an existing account is
 lower than in a new account.
 step_
@@ -278,7 +243,6 @@ won_amount value_created
 5 Post Sales Support 3,523 3,267 92.7% 77.8% 69 367 $66,606,031
 6 Upselling 3,284 2,513 66.1% 69.6% 102 165 $275,136,503 $252,658,162
 ^ Top
-Copyright © 2023 - Cien, Inc. - All Rights Reserved. 11
 ADE #5: CRM Activity Compliance by Group & Role (V.1.2)
 ## Purpose of Analysis
 Non-compliance of the CRM tools is a common problem. Companies invest in tools to automatically capture activities etc. It
@@ -331,7 +295,6 @@ am_count avg_am_act_capture_level
 ND 3 0% 0 0 0
 North 12 70% 78% 4 63% 6 53% 2 45%
 South 7 88% 89% 7 88% 0 0
-Copyright © 2023 - Cien, Inc. - All Rights Reserved. 12
 ADE #6: AI Prediction Quality (V.1.2)
 ## Purpose of Analysis
 As Yogi Berra said: “Predictions are hard. Especially about the future.” The Cien platform attempts to predict every sales step
@@ -374,7 +337,6 @@ n_score
 6/3/2022 0.830 0.890 0.877 0.970 0.840 0.863
 6/2/2022 0.830 0.890 0.877 0.970 0.840 0.863
 ^ Top
-Copyright © 2023 - Cien, Inc. - All Rights Reserved. 13
 ### Deal Intelligence (DI) - Revenue & Buyer Journey Insights
 Being able to isolate speci fi c steps in the sales process, and understand the customer factors a ff ecting outcomes is key to
 improving outcomes. The TrueAI platform makes that possible with the ssr and ssr_history entities.
@@ -384,7 +346,6 @@ DI #3: Pipeline Creation by Sale Type & Quality
 DI #4: Pipeline Analysis by Creator Group & Role
 DI #5: Win/Loss Analysis of New Logo Sales
 DI #6: Revenue Concentration Analysis
-Copyright © 2023 - Cien, Inc. - All Rights Reserved. 14
 DI #1: Historical Revenue (V.1.2)
 ## Purpose of Analysis
 Knowing past years’ sales numbers may seem like the most basic analysis you can do of a GTM team, but as always, there
@@ -431,7 +392,6 @@ year won_amount currency won_deals avg_deal_size new_logo_amount
 2018 $26,215,867 USD 1379 $19,011 $10,080,340
 2017 $ 11,313,692 USD 382 $29,617 $ 8,991,992
 ^ Top
-Copyright © 2023 - Cien, Inc. - All Rights Reserved. 15
 DI #2: Churn Analysis (V.1.2)
 ## Purpose of Analysis
 Most B2B companies rely on repeat purchases by their clients, even if they do not have an explicit subscription model.
@@ -481,7 +441,6 @@ WHERE (S.trueai_account_is_master = 'true' or S.trueai_account_is_master IS NULL
 GROUP BY Y.year -- group by year
 ## ORDER BY 1 DESC
 LIMIT 5; -- most recent data
-Copyright © 2023 - Cien, Inc. - All Rights Reserved. 16
 - ------------------
 ## Sample Result
 In this case, account churn was not a problem during 2018-2020, but doubled in 2021, resulting in a new decrease of active
@@ -493,7 +452,6 @@ year boy_customers new_customers churned_customers net_new_customers eoy_custome
 2018 708 199 36 163 1,115
 2017 421 143 13 130 708
 ^ Top
-Copyright © 2023 - Cien, Inc. - All Rights Reserved. 17
 DI #3: Pipeline Creation by Sale Type & Quality (V.1.2)
 ## Purpose of Analysis
 When surveying senior sales executives about their priorities, creating a bigger and better pipeline is almost always among
@@ -546,7 +504,6 @@ determine what will happen in the next step (selling)
 GROUP BY date_part('year', SH._sys_filt_end_date), date_part('quarter', SH._sys_filt_end_date) -- group
 by quarter
 ORDER BY 1 DESC; -- order by year and quarter most recent
-Copyright © 2023 - Cien, Inc. - All Rights Reserved. 18
 - ------------------
 ## Sample Result
 In this case, pipeline quantity has increased while pipeline quality has remained fairly steady. This is a good outcome, since
@@ -569,7 +526,6 @@ opp_win_rate
 2020-02 $65,489,854 44% $27,049,820 $21,363,079 19% $ 44,126,775 56%
 2020-01 $115,796,755 47% $57,469,296 $14,458,985 19% $101,337,770 55%
 ^ Top
-Copyright © 2023 - Cien, Inc. - All Rights Reserved. 19
 DI #4: Pipeline Analysis by Creator Group & Role (V.1.2)
 ## Purpose of Analysis
 While creating pipeline is top-of-mind for GTM leadership, there are often doubts whether speci fi c groups and/or roles are
@@ -618,7 +574,6 @@ ORDER BY 1; -- order by group
 ## Sample Result
 In this case, pipeline quality varies across groups with the LATAM group struggling to create high-quality new logo pipeline.
 Worth noting is that the SDR generated pipeline is signi fi cantly worse than the AE pipeline for the Enterprise group.
-Copyright © 2023 - Cien, Inc. - All Rights Reserved. 20
 trueai_group total_pipeline_created predicted_opp_
 win_rate
 predicted_opp_
@@ -630,7 +585,6 @@ EMEA $9,097,549 18% $1,710,604 $ 2,820,248 20% $6,277,300 18%
 Enterprise $18,275,038 18% $4,795,024 $ 3,964,363 27% $14,310,675 17%
 Mid Market $18,932,554 21% $3,734,812 $14,747,436 22% $4,185,118 17%
 ^ Top
-Copyright © 2023 - Cien, Inc. - All Rights Reserved. 21
 DI #5: Win/Loss Analysis of New Logo Sales (V.1.2)
 ## Purpose of Analysis
 Everyone wants to understand the secret to winning deals. There are tons of “best practices” out there, but what is really
@@ -675,7 +629,6 @@ ORDER BY 1 DESC; -- sort by outcome
 ## Sample Result
 In this case, the analysis shows a very common pattern, that more engagement results in a won deal (i.e., the customer is
 not going “radio-silent”, and not responding to the rep’s outreach). Factors such as number of buyer contacts involved does
-Copyright © 2023 - Cien, Inc. - All Rights Reserved. 22
 not seem to have any impact on outcome. Won deals are wrapped up in around 4 months, but deals that end up being
 lost, run much longer. Not surprisingly, there is a big di ff erence (2X) in the initial prediction of the deal being won.
 It is important to recall that this prediction is done prior to any actual sales activity has started on the deal – it does not
@@ -686,7 +639,6 @@ involved
 Closed Won 27% 206 111 148 98 66% 3.5
 Closed Lost 13% 2,036 410 42 16 39% 3.5
 ^ Top
-Copyright © 2023 - Cien, Inc. - All Rights Reserved. 23
 DI #6: Revenue Concentration Analysis (V.1.2)
 ## Purpose of Analysis
 Having too much revenue concentrated in a few large clients poses a great risk for a GTM organization. At the same time,
@@ -741,7 +693,6 @@ GROUP BY date_part('year', SH._sys_filt_end_date), SH._sys_ssr_id -- group by ac
 GROUP BY date_part('year', _sys_filt_end_date)
 ORDER BY date_part('year', _sys_filt_end_date) DESC;
 - ------------------
-Copyright © 2023 - Cien, Inc. - All Rights Reserved. 24
 ## Sample Result
 In this case, the revenue concentration has increased over the last 5 years, despite much higher revenue. This is due to
 the largest clients now being 10X bigger than 5 years ago; a great accomplishment of course, but it does also increase the
@@ -756,13 +707,11 @@ omer_percentage
 2018 $163,111,824 441 $348,462 $10,173,060 130 29%
 2017 $72,672,920 311 $221,135 $1,961,263 126 41%
 ^ Top
-Copyright © 2023 - Cien, Inc. - All Rights Reserved. 25
 Value Intelligence (VI) - Fairness & Value Creation in the GTM Org
 If you want to understand rep performance, you must look at what value each rep received, as new leads, existing accounts, or
 new opportunities from an SDR team. Once you do, you will often fi nd that top performance is correlated with having access to
 high potential accounts and a great pipeline, created by other reps.
 VI #1: Lead Generation by Quarter broken down by Creator Dept and Quality
-Copyright © 2023 - Cien, Inc. - All Rights Reserved. 26
 VI #1: Lead Generation by Quarter broken down by Creator Dept and Quality (V.1.2)
 ## Purpose of Analysis
 To build new logo pipeline, you need to generate good new leads (or accounts if you use an Account Based approach). Those
@@ -814,7 +763,6 @@ GROUP BY date_part('year', HL._sys_filt_start_date), date_part('quarter', HL._sy
 by year and quarter
 ORDER BY 1 DESC; -- most recent first
 - ------------------
-Copyright © 2023 - Cien, Inc. - All Rights Reserved. 27
 ## Sample Result
 In this case, the absolute number of leads generated per quarter has remained fairly steady. Around 25% of those are actively
 prospected by the sales team. The team is picking leads that are more likely to be converted. Around 5% of the leads are
@@ -844,7 +792,6 @@ alue
 2021-03 536,079 101,524 26,233 1.1% 5.1% 510,903 20,473 0.7% 9.8% $18,531,651
 2021-02 472,931 94,659 25,901 1.3% 4.7% 396,213 72,037 0.7% 3.6% $19,138,033
 ^ Top
-Copyright © 2023 - Cien, Inc. - All Rights Reserved. 28
 ### Coaching Intelligence (CI) - Rep Skills & Behavior Analysis
 Every GTM organization wants to develop their reps, but if you don’t understand their current behavior and skills, it is hard to
 provide meaningful individualized coaching, and next to impossible to evaluate the e ff ectiveness of di ff erent training, available
@@ -852,7 +799,6 @@ tools, etc. Cien changes that. Now, previously unavailable data points are at yo
 CI #1: Rep Hiring & Termination Analysis
 CI #2: Time to Lead
 ## CI #3: Quarterly Rep Performance Analysis
-Copyright © 2023 - Cien, Inc. - All Rights Reserved. 29
 CI #1: Rep Hiring & Termination Analysis (V.1.2)
 ## Purpose of Analysis
 Just like you need to understand gained and lost accounts, you need to understand how the size of the sales team has
@@ -902,7 +848,6 @@ COUNT(DISTINCT CASE WHEN U.trueai_user_role_function = 'MGMT' AND date_part('yea
 &lt;= Y.year AND date_part('year', COALESCE(U.trueai_termination_date, make_date(2100, 1,1))) &gt; Y.Year
 THEN U._sys_doc_id END) as mgmt_count_eoy,-- managers at end of year (use user_role_function field
 instead of user_role to simplify query)
-Copyright © 2023 - Cien, Inc. - All Rights Reserved. 30
 COUNT(DISTINCT CASE WHEN U.trueai_user_role_function = 'OTHER' AND date_part('year', U.trueai_hire_date)
 &lt;= Y.year AND date_part('year', COALESCE(U.trueai_termination_date, make_date(2100, 1,1))) &gt; Y.Year
 THEN U._sys_doc_id END) as other_count_eoy,-- others (e.g. sales engineers) at end of year (use
@@ -954,7 +899,6 @@ eoy
 2018 995 510 -202 1303 370 212 89 357 275 3.7
 2017 766 459 -230 995 249 175 78 295 198 3.5
 ^ Top
-Copyright © 2023 - Cien, Inc. - All Rights Reserved. 31
 CI #2: Time to Lead (V.1.2)
 ## Purpose of Analysis
 It is well known that there is a bene fi t to responding quickly to inbound leads. However, there may be doubts about how
@@ -1004,11 +948,9 @@ allows you to understand if the reps are already selecting the best leads for fa
 this sales organization is fairly good at responding quickly to leads.
 time_to_touch_bucket avg_hours touched_leads pred_conversion_rate converted actual_conversion_rate
 Over a week 855.9 85 10% 7 8%
-Copyright © 2023 - Cien, Inc. - All Rights Reserved. 32
 Over three days 120.1 71 15% 9 13%
 Over one day 47.8 43 21% 11 26%
 Over 6 hours 17.1 45 17% 6 13%
 Over 1 hour 2.6 85 18% 12 14%
 Within Minutes 0.1 840 23% 215 26%
 ^ Top
-Copyright © 2023 - Cien, Inc. - All Rights Reserved. 33
