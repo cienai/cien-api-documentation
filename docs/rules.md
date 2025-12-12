@@ -22,7 +22,7 @@ user_role_function SDR
 user_role_function MGMT
 ^ Top
 Copyright © 2023 - Cien, Inc. - All Rights Reserved. 213
-## RULES
+RULES
 rule_list
 The rule codes and descriptions for the platform, primarily related to how the SSR history fi le is organized.
 rule_list
@@ -33,7 +33,7 @@ creation date, so the CRM creator of
 the opp becomes the owner
 LeadsOwnerid OWNERSHIP_LEADS_CRM_OPP_CREATOR_
 SELLING_STARTED_AT_OR_AFTER_OPP_CRE
-## ATION
+ATION
 3 Lead owner overridden by owner of
 most activities
 LeadsOwnerid OWNERSHIP_LEADS_CRM_OWNER_OVERRI
@@ -46,7 +46,7 @@ creation date, so the CRM creator of
 the opp becomes the owner
 AccountsOwnerid OWNERSHIP_ACCOUNTS_CRM_OPP_CREAT
 OR_SELLING_STARTED_AT_OR_AFTER_OPP_
-## CREATION
+CREATION
 6 Account owner overridden by owner
 of most activities
 AccountsOwnerid OWNERSHIP_ACCOUNTS_CRM_OWNER_OV
@@ -56,7 +56,7 @@ ERRIDDEN_BY_ACT_COUNT
 opp history stages, the creator of opp
 history stages becomes the owner
 OppsOwnerid OWNERSHIP_OPPS_OWNER_FROM_OPP_HI
-## STORY
+STORY
 9 Lead createdon becomes the end date LeadsCreatedon END_LEADS_CRM_CREATEDON
 10 Account createdon becomes the end
 date
@@ -78,11 +78,11 @@ becomes the end date
 AccountsCreatedo
 n
 END_ACCOUNTS_FIRST_CONTACTS_CREAT
-## EDON
+EDON
 13 Opp close date earlier than createdon,
 move createdon back
 OppsCreatedon END_OPPS_CLOSED_ON_EARLER_THAN_CR
-## EATEDON
+EATEDON
 14 Opp CRM createdon becomes the
 created date
 OppsCreatedon END_OPPS_CRM_CREATEDON
@@ -136,7 +136,7 @@ e
 END_ACCOUNTS_NO_MORE_ACTIVITES_DE
 TECTED_IN_150_DAYS
 26 Account is still open, close date is
-## None
+None
 AccountsCloseDat
 e
 END_ACCOUNTS_STILL_OPEN
@@ -145,12 +145,12 @@ and close date &lt; asof, returning
 crm_close_date
 OppsCloseDate END_OPPS_CRM_CLOSED
 28 Opps is still open in CRM, close date is
-## None
+None
 OppsCloseDate END_OPPS_NOT_CLOSED
 29 Opps is closed in the CRM but the
 close date is in the future, so the opp
 remains open asof now, close date is
-## None
+None
 OppsCloseDate END_OPPS_CLOSE_DATE_IN_THE_FUTURE
 30 Lead is a not a hatlead, returning None LeadsFirstTouch END_LEADS_NOT_HATLEAD
 31 First touch is performedon of the fi rst
@@ -159,11 +159,11 @@ LeadsFirstTouch END_LEADS_FIRST_ACTIVITY_RECORDED
 32 No activities but lead converted,
 returning createdon
 LeadsFirstTouch END_LEADS_NO_ACTIVITIES_BUT_CONVER
-## TED
+TED
 33 No activities but lead disquali fi ed,
 returning createdon
 LeadsFirstTouch END_LEADS_NO_ACTIVITIES_BUT_DISQUAL
-## IFIED
+IFIED
 34 No activities and lead is not converted
 nor disquali fi ed, therefore untouched
 LeadsFirstTouch END_LEADS_UNTOUCHED
@@ -175,7 +175,7 @@ LeadsFirstTouch END_LEADS_NO_ACTIVITES_USE_MIDDLE_B
 ETWEEN_CREATED_AND_CRM_LAST_ACTIVI
 TY
 36 Account is a not a hatlead, returning
-## None
+None
 AccountsFirstTouc
 h
 END_ACCOUNTS_NOT_HATLEAD
@@ -193,7 +193,7 @@ returning createdon
 AccountsFirstTouc
 h
 END_ACCOUNTS_NO_ACTIVITIES_BUT_CON
-## VERTED
+VERTED
 39 No activities and account is not
 converted nor disquali fi ed, therefore
 untouched
@@ -208,7 +208,7 @@ AccountsFirstTouc
 h
 END_ACCOUNTS_NO_ACTIVITES_USE_MID
 DLE_BETWEEN_CREATED_AND_CRM_LAST_
-## ACTIVITY
+ACTIVITY
 41 Lead is a not a hatlead, returning None LeadsLastTouch END_LEADS_NOT_HATLEAD
 42 Last touch is performedon of the last
 activity
@@ -216,11 +216,11 @@ LeadsLastTouch END_LEADS_LAST_ACTIVITY_RECORDED
 43 No activities but lead converted,
 returning createdon
 LeadsLastTouch END_LEADS_NO_ACTIVITIES_BUT_CONVER
-## TED
+TED
 44 No activities but lead disquali fi ed,
 returning createdon
 LeadsLastTouch END_LEADS_NO_ACTIVITIES_BUT_DISQUAL
-## IFIED
+IFIED
 45 No activities and lead is not converted
 nor disquali fi ed, therefore untouched
 LeadsLastTouch END_LEADS_UNTOUCHED
@@ -230,7 +230,7 @@ as last touch
 LeadsLastTouch END_LEADS_NO_ACTIVITES_USE_CRM_LAS
 T_ACTIVITY
 47 Account is a not a hatlead, returning
-## None
+None
 AccountsLastTouc
 h
 END_ACCOUNTS_NOT_HATLEAD
@@ -245,13 +245,13 @@ returning createdon
 AccountsLastTouc
 h
 END_ACCOUNTS_NO_ACTIVITIES_BUT_CON
-## VERTED
+VERTED
 50 No activities but account disquali fi ed,
 returning createdon
 AccountsLastTouc
 h
 END_ACCOUNTS_NO_ACTIVITIES_BUT_DIS
-## QUALIFIED
+QUALIFIED
 Copyright © 2023 - Cien, Inc. - All Rights Reserved. 217
 rule_list
 _sys_docid description model rule_name
@@ -279,7 +279,7 @@ OppsAeDate END_OPPS_CLOSED_BEFORE_CREATEDON
 55 Opp has history stages present before
 createdon, ae date set to close date
 OppsAeDate END_OPPS_HISTORY_STAGES_BEFORE_CRE
-## ATEDON
+ATEDON
 56 Opp hando ff happened at opp
 creation date, ae date set to createdon
 OppsAeDate END_OPPS_NO_HANDOFF_RETURNING_ML
@@ -288,7 +288,7 @@ _CREATEDON
 happened on the date of the AE's fi rst
 activity on the lead
 OppsAeDate END_OPPS_HANDOFF_BEFORE_OPP_CREA
-## TION
+TION
 58 Opp hando ff from SDR to AE
 happened on the date of the AE's fi rst
 activity on the opp.
@@ -307,7 +307,7 @@ REATEDON_PLUS_180_DAYS
 62 Lead prospecting started: fi rst_touch is
 not None
 SsrSsrHistory OUTCOME_PROSPECTING_ACTIVITY_RECO
-## RDED
+RDED
 63 Lead disquali fi ed SsrSsrHistory OUTCOME_LEAD_DISQUALIFIED
 64 Lead converted SsrSsrHistory OUTCOME_LEAD_CONVERTED
 Copyright © 2023 - Cien, Inc. - All Rights Reserved. 218
@@ -322,7 +322,7 @@ ITES_IN_150_DAYS
 68 Postselling successful: upsell opp is
 created
 SsrSsrHistory OUTCOME_POSTSELLING_UPSELLING_STA
-## RTED
+RTED
 69 Postselling failed: no upsell opp
 created and activities stopped
 SsrSsrHistory OUTCOME_POSTSELLING_CHURNED
@@ -353,7 +353,7 @@ creation date, so the CRM creator of
 the opp becomes the owner
 SsrSsrHistory OWNERSHIP_ACCOUNTS_CRM_OPP_CREAT
 OR_SELLING_STARTED_AT_OR_AFTER_OPP_
-## CREATION
+CREATION
 78 Account owner overridden by owner
 of the most activities
 SsrSsrHistory OWNERSHIP_ACCOUNTS_CRM_OWNER_OV
@@ -393,24 +393,24 @@ OT_BY_OWNER
 returning the last present booking
 amount in opp history
 OppsPredBooking
-## Amt
+Amt
 BOOKING_AMT_FROM_HISTORY
 84 Opp booking amount absent and no
 booking amount present in opp
 history, returning the meadian across
 similar opps
 OppsPredBooking
-## Amt
+Amt
 BOOKING_AMT_FEAT_COMB_MEDIAN
 85 Opp booking amount absent and no
 booking amount present in opp
 history, returning the meadian across
 all opps
 OppsPredBooking
-## Amt
+Amt
 BOOKING_AMT_FEAT_OVERALL_MEDIAN
 86 Returning opp trueai booking amount OppsPredBooking
-## Amt
+Amt
 ML_BOOKING_AMT
 87 Account type determined as internal ActivitiesInteractio
 nPurpose
@@ -500,7 +500,7 @@ present, becomes Upselling
 ActivitiesInteractio
 nPurpose
 NO_OPPID_NO_OPEN_OPPS_BUT_WON_O
-## PPS
+PPS
 Copyright © 2023 - Cien, Inc. - All Rights Reserved. 221
 rule_list
 _sys_docid description model rule_name
@@ -510,7 +510,7 @@ absent, becomes recycled prospecting
 ActivitiesInteractio
 nPurpose
 NO_OPPID_NO_OPEN_OPPS_BUT_LOST_O
-## PPS
+PPS
 101 Value present, no need to look up Lookup SELF
 102 Value looked up from hatlead Lookup HATLEAD
 103 Value looked up from account Lookup ACCOUNT

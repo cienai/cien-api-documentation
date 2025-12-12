@@ -24,12 +24,14 @@ function sanitizeLine(line) {
 function isLikelyHeading(line) {
   // Heuristic: short-ish line, minimal punctuation, high title/uppercase ratio
   if (!line) return false;
-  if (line.length < 3 || line.length > 120) return false;
+  if (line.length < 8 || line.length > 120) return false;
 
   const punctCount = (line.match(/[.,;!?]/g) || []).length;
   if (punctCount > 1) return false;
 
   const words = line.split(' ');
+  // Require at least 2 words to avoid single-word fragments (e.g., TION, TED)
+  if (words.length < 2) return false;
   const letters = line.replace(/[^A-Za-z]/g, '').length;
   const upper = (line.match(/[A-Z]/g) || []).length;
   const upperRatio = letters ? upper / letters : 0;
@@ -42,6 +44,10 @@ function isLikelyHeading(line) {
 
   // Headings often don't end with a period
   const endsWithPeriod = /\.$/.test(line);
+
+  // Exclude common non-headings
+  const blacklist = new Set(['None', 'Yes', 'No']);
+  if (blacklist.has(line)) return false;
 
   return (allCaps || looksTitle) && !endsWithPeriod;
 }
