@@ -4,7 +4,6 @@ title: Queries
 sidebar_label: Queries
 ---
 
-> TODO: Paste content from the PDF here. This page is structured to make it easy to drop in sections directly.
 
 ## Overview
 

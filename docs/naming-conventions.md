@@ -4,7 +4,6 @@ title: Naming Conventions & Special Fields
 
 This page summarizes common naming patterns and special fields used across Cien datasets.
 
-> TODO: Paste content from the PDF here. The sections below match the expected structure to simplify copy/paste.
 
 ## Prefixes
 
