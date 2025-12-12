@@ -14,12 +14,7 @@ const config = {
 
   themeConfig: {
     navbar: {
-      title: '', // 👈 remove text title (logo-only look)
-      logo: {
-        alt: 'Cien',
-        src: 'img/logo.svg',
-        href: '/cien-api-documentation/', // ensure homepage link works on GitHub Pages
-      },
+      title: '', // no text title, and no logo to avoid broken image link
       items: [
         { type: 'doc', docId: 'intro', position: 'left', label: 'Get started' },
         { type: 'doc', docId: 'examples', position: 'left', label: 'Examples' },
