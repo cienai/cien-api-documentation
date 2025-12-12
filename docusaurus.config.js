@@ -52,18 +52,13 @@ const config = {
           items: [
             { label: 'Resource Hub', href: 'https://www.cien.ai/resources' },
             { label: 'Videos', href: 'https://www.cien.ai/videos' },
-            { label: 'Blog', href: 'https://www.cien.ai/blog/' },
             { label: 'Expert Advice', href: 'https://www.cien.ai/category/blog/expert-advice/' },
-            { label: 'News', href: 'https://www.cien.ai/cien-in-the-news' },
-            { label: 'Press', href: 'https://www.cien.ai/press' },
-            { label: 'Newsletter Sign-up', href: 'https://www.cien.ai/#elementor-action%3Aaction%3Dpopup%3Aopen%26settings%3DeyJpZCI6IjUxNjMiLCJ0b2dnbGUiOmZhbHNlfQ%3D%3D' },
             { label: 'GTM Suite Webinars', href: 'https://www.cien.ai/cien-webinars/' },
           ],
         },
         {
           title: 'Cien.ai',
           items: [
-            { label: 'People', href: 'http://cien.ai/people' },
             { label: 'Contact', href: 'http://cien.ai/contact' },
           ],
         },

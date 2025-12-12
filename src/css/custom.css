@@ -65,3 +65,15 @@
 .row .col.docItemCol {
   flex: 1 1 100%;
 }
+
+/* Footer: lighter grey background on light theme; text same as main background color */
+html:not([data-theme='dark']) .footer {
+  background-color: #f2f3f5; /* slightly lighter grey */
+  color: var(--ifm-background-color); /* matches main section background */
+}
+html:not([data-theme='dark']) .footer a,
+html:not([data-theme='dark']) .footer h4,
+html:not([data-theme='dark']) .footer li,
+html:not([data-theme='dark']) .footer .footer__link-item {
+  color: var(--ifm-background-color);
+}
