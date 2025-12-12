@@ -18,13 +18,14 @@ const config = {
       logo: {
         alt: 'Cien',
         src: 'img/logo.svg',
-        href: '/', // homepage
+        href: '/cien-api-documentation/', // ensure homepage link works on GitHub Pages
       },
       items: [
         { type: 'doc', docId: 'intro', position: 'left', label: 'Get started' },
         { type: 'doc', docId: 'examples', position: 'left', label: 'Examples' },
         { type: 'doc', docId: 'rules', position: 'left', label: 'Rules' },
         { type: 'doc', docId: 'naming-conventions', position: 'left', label: 'Naming' },
+        { type: 'doc', docId: 'queries', position: 'left', label: 'Queries' },
         { type: 'docSidebar', sidebarId: 'docs', position: 'left', label: 'Entities' },
       ],
     },
