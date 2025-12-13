@@ -77,6 +77,40 @@
 .navbar .nav-item--rules .navbar__link:hover {
   color: #d8d7d6 !important;
 }
+.navbar .DocSearch-Button-Container svg,
+.navbar .navbar__toggle svg {
+  fill: #FCB900 !important;
+  color: #FCB900 !important;
+}
+
+/* Ensure colors persist in dark mode */
+[data-theme='dark'] .navbar .nav-item--intro .navbar__link {
+  color: #FCB900 !important;
+}
+[data-theme='dark'] .navbar .nav-item--intro .navbar__link:hover {
+  color: #f4c458 !important;
+}
+[data-theme='dark'] .navbar .nav-item--examples .navbar__link,
+[data-theme='dark'] .navbar .nav-item--queries .navbar__link,
+[data-theme='dark'] .navbar .nav-item--entities .navbar__link,
+[data-theme='dark'] .navbar .nav-item--rules .navbar__link {
+  color: #bfbebe !important;
+}
+[data-theme='dark'] .navbar .nav-item--examples .navbar__link:hover,
+[data-theme='dark'] .navbar .nav-item--queries .navbar__link:hover,
+[data-theme='dark'] .navbar .nav-item--entities .navbar__link:hover,
+[data-theme='dark'] .navbar .nav-item--rules .navbar__link:hover {
+  color: #d8d7d6 !important;
+}
+[data-theme='dark'] .navbar .DocSearch-Button,
+[data-theme='dark'] .navbar .theme-toggle {
+  color: #FCB900 !important;
+}
+[data-theme='dark'] .navbar .DocSearch-Button-Container svg,
+[data-theme='dark'] .navbar .navbar__toggle svg {
+  fill: #FCB900 !important;
+  color: #FCB900 !important;
+}
 /* Keep search button and theme toggle gold for consistency */
 .navbar .DocSearch-Button,
 .navbar .theme-toggle {
