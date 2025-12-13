@@ -2,13 +2,13 @@ import React from 'react';
 import Layout from '@theme/Layout';
 import Link from '@docusaurus/Link';
 import useBaseUrl from '@docusaurus/useBaseUrl';
-// Use require with .default to ensure correct public URL in Docusaurus builds
-const bannerUrl = require('@site/static/img/cien_banner.png').default;
+// Import via bundler to emit correct public URL
+import bannerUrl from '@site/static/img/cien_banner.png';
 
 export default function Home() {
   return (
     <Layout title="Cien API">
-  <main className="hero" style={{ padding: '6rem 2rem', position: 'relative' }}>
+      <main className="hero" style={{ padding: '6rem 2rem', position: 'relative' }}>
         <div className="home-hero-content" style={{ textAlign: 'center' }}>
           <h1 style={{ marginBottom: '0.75rem' }}>Cien API</h1>
           <p style={{ maxWidth: 900, margin: '0 auto 1.5rem' }}>
@@ -39,15 +39,15 @@ export default function Home() {
           </div>
         </div>
 
-        {/* Banner above footer */}
-        <div style={{ marginTop: '3rem', textAlign: 'center' }}>
-          <img
-            src={bannerUrl}
-            alt="Cien banner"
-            style={{ display: 'block', maxWidth: 1200, width: '100%', height: 'auto', margin: '0 auto' }}
-          />
-        </div>
       </main>
+      {/* Banner placed as its own section below hero, centered */}
+      <section className="cien-banner" style={{ padding: '2rem 0', textAlign: 'center' }}>
+        <img
+          src={bannerUrl}
+          alt="Cien banner"
+          style={{ display: 'block', maxWidth: 1200, width: '100%', height: 'auto', margin: '0 auto' }}
+        />
+      </section>
     </Layout>
   );
 }

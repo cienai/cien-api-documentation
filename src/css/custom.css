@@ -47,7 +47,9 @@
 /* Header background color uniform across light/dark */
 .navbar,
 .navbar.navbar--fixed,
-.navbar .navbar__inner {
+.navbar.navbar--fixed-top,
+.navbar .navbar__inner,
+.navbar .navbar__inner .container {
   background-color: #212228 !important;
   box-shadow: none !important;
 }
@@ -119,7 +121,8 @@
 /* Footer: lighter grey background on light theme; text same as main background color */
 /* Footer: darker background than hero, text same as hero background (typically white) */
 /* Footer colors consistent for light & dark */
-.footer {
+.footer,
+.footer.footer--dark {
   background-color: #212228 !important; /* uniform header/footer background */
   color: #6d7084 !important; /* footer text color remains */
 }
