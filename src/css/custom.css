@@ -39,13 +39,7 @@
 }
 
 /* Always use hamburger: hide inline left nav, show toggle, keep right items (search) visible */
-.navbar .navbar__items--left,
-.navbar .navbar__items--right {
-  display: none !important;
-}
-.navbar__toggle {
-  display: inline-flex !important;
-}
+/* Removed forced hamburger visibility to restore default behavior */
 
 /* Let Docusaurus handle sidebar; keep toggle visible on all widths */
 
