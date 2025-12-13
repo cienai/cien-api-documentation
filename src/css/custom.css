@@ -236,11 +236,16 @@
 /* Banner section should occupy full available width/height with image contained */
 .cien-banner {
   width: 100%;
-  min-height: 20vh; /* give it some height to show the banner */
+  min-height: 0; /* no extra height */
   background-color: transparent;
-  margin: 0; /* remove any gap */
+  margin: 0 !important; /* remove any gap */
+  padding: 0 !important;
   line-height: 0; /* avoid inline gap below image */
 }
 .cien-banner img {
   display: block;
+}
+/* Ensure footer sits flush against banner */
+.footer {
+  margin-top: 0 !important;
 }
