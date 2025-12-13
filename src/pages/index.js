@@ -40,13 +40,15 @@ export default function Home() {
         </div>
 
       </main>
-      {/* Banner placed as its own section below hero, centered */}
-      <section className="cien-banner" style={{ padding: '2rem 0', textAlign: 'center' }}>
-        <img
-          src={bannerUrl}
-          alt="Cien banner"
-          style={{ display: 'block', maxWidth: 1200, width: '100%', height: 'auto', margin: '0 auto' }}
-        />
+      {/* Banner placed as its own section below hero, full-width */}
+      <section className="cien-banner" style={{ padding: 0 }}>
+        <div style={{ width: '100%', height: '100%', display: 'block' }}>
+          <img
+            src={bannerUrl}
+            alt="Cien banner"
+            style={{ width: '100%', height: '100%', display: 'block', objectFit: 'contain' }}
+          />
+        </div>
       </section>
     </Layout>
   );

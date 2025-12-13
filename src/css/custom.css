@@ -54,6 +54,24 @@
   box-shadow: none !important;
 }
 
+/* Header text/link color: gold across modes */
+.navbar a,
+.navbar .navbar__item,
+.navbar .navbar__link,
+.navbar .navbar__brand,
+.navbar .clean-btn,
+.navbar .DocSearch-Button,
+.navbar .theme-toggle,
+.navbar .navbar__title {
+  color: #FCB900 !important;
+}
+/* Ensure search icon and toggle respect color */
+.navbar .DocSearch-Button-Container svg,
+.navbar .navbar__toggle svg {
+  fill: #FCB900 !important;
+  color: #FCB900 !important;
+}
+
 /* Show inline navigation at all widths; remove hamburger */
 .navbar .navbar__items--left,
 .navbar .navbar__items--right {
@@ -192,10 +210,18 @@
   filter: brightness(0.95);
 }
 .home-hero-content .button.button--secondary {
-  background-color: #2D2E3B;
-  border-color: #2D2E3B;
+  background-color: #323442;
+  border-color: #323442;
   color: #ffffff;
 }
 .home-hero-content .button.button--secondary:hover {
-  filter: brightness(1.1);
+  background-color: #3f414f;
+  border-color: #3f414f;
+}
+
+/* Banner section should occupy full available width/height with image contained */
+.cien-banner {
+  width: 100%;
+  min-height: 20vh; /* give it some height to show the banner */
+  background-color: transparent;
 }
