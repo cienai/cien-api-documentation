@@ -39,14 +39,23 @@
 }
 
 /* Always use hamburger: hide inline left nav, show toggle, keep right items (search) visible */
-.navbar__items--left {
+.navbar__items--left,
+.navbar__items--right,
+.navbar__items .navbar__item {
   display: none !important;
 }
 .navbar__toggle {
   display: inline-flex !important;
 }
-.navbar__items--right {
-  display: none !important;
+
+/* Ensure hamburger (mobile drawer) works at all viewport widths */
+.navbar-sidebar {
+  z-index: 2000;
+}
+.navbar-sidebar--active {
+  display: block !important;
+  visibility: visible !important;
+  transform: none !important;
 }
 
 /* Mobile drawer/menu icons for nav items */
@@ -102,20 +111,29 @@
 /* Footer: lighter grey background on light theme; text same as main background color */
 /* Footer: darker background than hero, text same as hero background (typically white) */
 html:not([data-theme='dark']) .footer {
-  background-color: #1f2937; /* dark slate gray */
-  color: var(--ifm-background-color);
+  background-color: #2D2E3B; /* requested dark background */
+  color: #6d7084; /* requested text color */
 }
 html:not([data-theme='dark']) .footer a,
 html:not([data-theme='dark']) .footer h4,
 html:not([data-theme='dark']) .footer li,
 html:not([data-theme='dark']) .footer .footer__link-item {
-  color: var(--ifm-background-color);
+  color: #6d7084;
 }
 /* Remove any footer link icons/pseudo-elements */
 .footer a::before,
 .footer .footer__link-item::before {
   content: none !important;
   background: none !important;
+}
+/* Also remove bullets/markers and any inline SVG icons */
+.footer .menu__list,
+.footer .menu__list-item {
+  list-style: none;
+}
+.footer .footer__link-item svg,
+.footer .menu__link svg {
+  display: none !important;
 }
 
 /* Hero background text: "Measure What Matters" behind content */
