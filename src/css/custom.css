@@ -54,18 +54,32 @@
   box-shadow: none !important;
 }
 
-/* Header text/link color: gold across modes */
-.navbar a,
-.navbar .navbar__item,
-.navbar .navbar__link,
-.navbar .navbar__brand,
-.navbar .clean-btn,
-.navbar .DocSearch-Button,
-.navbar .theme-toggle,
-.navbar .navbar__title {
+/* Header navigation item colors */
+/* Get started: default gold, hover lighter gold */
+.navbar .nav-item--intro .navbar__link {
   color: #FCB900 !important;
 }
-/* Ensure search icon and toggle respect color */
+.navbar .nav-item--intro .navbar__link:hover {
+  color: #f4c458 !important;
+}
+/* Other items: default grey, hover lighter grey */
+.navbar .nav-item--examples .navbar__link,
+.navbar .nav-item--queries .navbar__link,
+.navbar .nav-item--entities .navbar__link,
+.navbar .nav-item--rules .navbar__link {
+  color: #bfbebe !important;
+}
+.navbar .nav-item--examples .navbar__link:hover,
+.navbar .nav-item--queries .navbar__link:hover,
+.navbar .nav-item--entities .navbar__link:hover,
+.navbar .nav-item--rules .navbar__link:hover {
+  color: #d8d7d6 !important;
+}
+/* Keep search button and theme toggle gold for consistency */
+.navbar .DocSearch-Button,
+.navbar .theme-toggle {
+  color: #FCB900 !important;
+}
 .navbar .DocSearch-Button-Container svg,
 .navbar .navbar__toggle svg {
   fill: #FCB900 !important;
@@ -224,4 +238,9 @@
   width: 100%;
   min-height: 20vh; /* give it some height to show the banner */
   background-color: transparent;
+  margin: 0; /* remove any gap */
+  line-height: 0; /* avoid inline gap below image */
+}
+.cien-banner img {
+  display: block;
 }
