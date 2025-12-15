@@ -59,7 +59,10 @@ module.exports = {
       type: 'category',
       label: 'Entities',
       collapsed: false,
-      items: entityItems,
+      items: [
+        'entities/index',
+        ...entityItems,
+      ],
     },
   ],
 };
