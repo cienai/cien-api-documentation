@@ -28,13 +28,12 @@ export default function Home() {
             <Link className="button button--secondary margin--sm" to={useBaseUrl('docs/entities/contacts/')}>
               Entities
             </Link>
+            <Link className="button button--secondary margin--sm" to={useBaseUrl('docs/naming-conventions')}>
+              Naming Conventions
+            </Link>
 
             <Link className="button button--secondary margin--sm" to={useBaseUrl('docs/rules')}>
               Rules
-            </Link>
-
-            <Link className="button button--secondary margin--sm" to={useBaseUrl('docs/naming-conventions')}>
-              Naming Conventions
             </Link>
           </div>
         </div>

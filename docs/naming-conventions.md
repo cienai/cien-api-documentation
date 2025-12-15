@@ -8,23 +8,78 @@ Below are common prefixes, suffixes, and special fields used across the CIEN Dat
 
 ## Prefixes
 
-| Field Prefix | Description |
-| --- | --- |
-| `sys_` | Indicates that the data field is a system field, like an ID, or a date context field. |
-| `crm_` | Indicates that the data is passed through straight from the source CRM field without any additional AI processing. |
-| `trueai_` | Indicates that the data has been run through the TrueAI engine, for further standardization or predictions etc. These fields are usually accompanied by additional metadata fields such as confidence or rules applied. Please note that in derived entities such as SSR, SSR History and User History, this prefix is omitted for brevity — unless otherwise stated, all fields in those entities are TrueAI fields. |
-| `ade_` | Indicates that the value is part of the Automatic Data Enhancement functionality of the TrueAI engine. |
-| `di_` | Indicates that the value is part of the Deal Intelligence functionality of the TrueAI engine. |
-| `vi_` | Indicates that the value is part of the Value Intelligence functionality of the TrueAI engine. |
-| `ci_` | Indicates that the value is part of the Coaching Intelligence functionality of the TrueAI engine. |
+<table>
+	<colgroup>
+		<col style={{width: '40%'}} />
+		<col style={{width: '60%'}} />
+	</colgroup>
+	<thead>
+		<tr>
+			<th>Field Prefix</th>
+			<th>Description</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td><code>sys_</code></td>
+			<td>Indicates that the data field is a system field, like an ID, or a date context field.</td>
+		</tr>
+		<tr>
+			<td><code>crm_</code></td>
+			<td>Indicates that the data is passed through straight from the source CRM field without any additional AI processing.</td>
+		</tr>
+		<tr>
+			<td><code>trueai_</code></td>
+			<td>Indicates that the data has been run through the TrueAI engine, for further standardization or predictions etc. These fields are usually accompanied by additional metadata fields such as confidence or rules applied. Please note that in derived entities such as SSR, SSR History and User History, this prefix is omitted for brevity — unless otherwise stated, all fields in those entities are TrueAI fields.</td>
+		</tr>
+		<tr>
+			<td><code>ade_</code></td>
+			<td>Indicates that the value is part of the Automatic Data Enhancement functionality of the TrueAI engine.</td>
+		</tr>
+		<tr>
+			<td><code>di_</code></td>
+			<td>Indicates that the value is part of the Deal Intelligence functionality of the TrueAI engine.</td>
+		</tr>
+		<tr>
+			<td><code>vi_</code></td>
+			<td>Indicates that the value is part of the Value Intelligence functionality of the TrueAI engine.</td>
+		</tr>
+		<tr>
+			<td><code>ci_</code></td>
+			<td>Indicates that the value is part of the Coaching Intelligence functionality of the TrueAI engine.</td>
+		</tr>
+	</tbody>
+  
+</table>
 
 ## Suffixes
 
-| Field Suffix | Description |
-| --- | --- |
-| `_conf` | This suffix on a field is an indication of the confidence in the classification of the TrueAI field with the same name. A confidence of 0 means that there was no data available to determine a classification (should usually be excluded from averages). A confidence value of `null` means that the record is not applicable for this classification. |
-| `_rule` | This suffix on a field is an indication of which rule was applied in the classification of a TrueAI field. The full description of the rule can be looked up in the Rules entity. |
-| `_pi` | This suffix on a field is an indication that the information is part of “Peek Inside” for a particular field — i.e. additional data points providing transparency and explanation to a particular TrueAI prediction. |
+<table>
+	<colgroup>
+		<col style={{width: '40%'}} />
+		<col style={{width: '60%'}} />
+	</colgroup>
+	<thead>
+		<tr>
+			<th>Field Suffix</th>
+			<th>Description</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td><code>_conf</code></td>
+			<td>This suffix on a field is an indication of the confidence in the classification of the TrueAI field with the same name. A confidence of 0 means that there was no data available to determine a classification (should usually be excluded from averages). A confidence value of <code>null</code> means that the record is not applicable for this classification.</td>
+		</tr>
+		<tr>
+			<td><code>_rule</code></td>
+			<td>This suffix on a field is an indication of which rule was applied in the classification of a TrueAI field. The full description of the rule can be looked up in the Rules entity.</td>
+		</tr>
+		<tr>
+			<td><code>_pi</code></td>
+			<td>This suffix on a field is an indication that the information is part of “Peek Inside” for a particular field — i.e. additional data points providing transparency and explanation to a particular TrueAI prediction.</td>
+		</tr>
+	</tbody>
+</table>
 
 ## Special Fields
 
