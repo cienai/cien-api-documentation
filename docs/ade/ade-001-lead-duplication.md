@@ -3,7 +3,7 @@ id: ade-001
 title: Lead Duplication
 version: v1.2
 category: "Analytics & Data Examples"
-sidebar_label: ade-001
+sidebar_label: Lead Duplication
 ---
 
 # Lead Duplication
