@@ -451,75 +451,40 @@ year boy_customers new_customers churned_customers net_new_customers eoy_custome
 2020 1,273 127 87 40 1,396
 2019 1,115 150 60 90 1,273
 2018 708 199 36 163 1,115
-2017 421 143 13 130 708
-^ Top
-DI #3: Pipeline Creation by Sale Type & Quality (V.1.2)
-## Purpose of Analysis
-When surveying senior sales executives about their priorities, creating a bigger and better pipeline is almost always among
-their top 3 objectives. However, it is important to measure pipeline not just in deals and pipeline amount, but also in
-quality. It is often easy for reps to create low-quality pipeline by simply entering deals that they hope will close, doing so
-without performing the required quali fi cation steps. Cien detects this automatically.
-Common Challenges and How to Accomplish with the Cien API
-As in other deal analysis, pipeline analysis needs to be segmented between existing and new logo business, since the win
-rates tend to be quite di ff erent. You should also predict the probability of a win for each deal based on the attributes of the
-account and what has occurred until now (e.g., the level of engagement during initial discovery). This is extremely hard to
-do using raw CRM data, since you often don’t have access to clean outcomes and enough training data to build a reliable
-prediction model. Cien’s Deal Intelligence uses AI models trained on millions of records - fi ne-tuned on your speci fi c data -
-to predict those outcomes. Please see the ADE prediction accuracy example above for how to inspect the quality of deal
-predictions over time of your data.
-As with most deal analysis, we use the ssr_history entity instead of the CRM opps table, but here we are looking at the
-Prospecting (for new logo selling) and Post-Sale Support (for upselling) steps by fi ltering by step_name .
-- ------------------
-Example SQL
-## SELECT
-CAST(date_part('year', SH._sys_filt_end_date) as VARCHAR) || '-0' ||
-CAST(date_part('quarter',SH._sys_filt_end_date) as VARCHAR) as year_qtr, -- create a quarter value
-SUM(SH.opp_pipeline_amt) as total_pipeline_created, -- the pipeline created in the quarter
-AVG(SH.step_next_success_prob) as predicted_opp_win_rate, -- the avg. predicted win rate of that
-pipeline (pipe line quality)
-SUM(SH.step_next_success_prob * SH.opp_pipeline_amt) as predicted_opp_win_amount, -- predicted win rate
-times amount is the expected won amount resulting from this pipeline
-SUM(CASE WHEN SH.step_name = 'Prospecting' THEN SH.opp_pipeline_amt END) as new_logo_pipeline, -- just
-new logo pipeline
-AVG(CASE WHEN SH.step_name = 'Prospecting' THEN SH.step_next_success_prob END) as
-new_logo_predicted_opp_win_rate, -- the avg. predicted win rate for new logo only
-- -SUM(CASE WHEN SH.step_name = 'Prospecting' THEN SH.step_next_success_prob * SH.opp_pipeline_amt END )
-as _predicted_opp_win_amount, -- win rate times amount for new logo pipeline
-SUM(CASE WHEN SH.step_name = 'Post Sales Support' THEN SH.opp_pipeline_amt END) as upselling_pipeline,
-- - just upselling pipeline
-AVG(CASE WHEN SH.step_name = 'Post Sales Support' THEN SH.step_next_success_prob END) as
-upselling_predicted_opp_win_rate -- the avg. predicted win rate for upselling only
-- -SUM(CASE WHEN SH.step_name = 'Post Sales Support' THEN SH.step_next_success_prob * SH.opp_pipeline_amt
-END ) as upselling_predicted_opp_win_amount -- win rate times amount for upselling pipeline
-FROM ssr AS S
-INNER JOIN ssr_history AS SH
-ON S._sys_doc_id = SH._sys_ssr_id
-WHERE date_part('year', SH._sys_filt_end_date) &gt;= date_part('year', SH._sys_asof) -2 AND
-date_part('year', SH._sys_filt_end_date) &lt; date_part('year', SH._sys_asof) -- look at the last 2 full
-years
-AND (S.trueai_account_is_master = 'true' OR S.trueai_account_is_master is Null)
-AND SH.step_name in ('Prospecting', 'Post Sales Support') -- we're only interested in the steps where
-pipeline is created
-AND SH.step_success = 'true' -- we're only interested in successfully completed steps, since we want to
-determine what will happen in the next step (selling)
-GROUP BY date_part('year', SH._sys_filt_end_date), date_part('quarter', SH._sys_filt_end_date) -- group
-by quarter
-ORDER BY 1 DESC; -- order by year and quarter most recent
-- ------------------
-## Sample Result
-In this case, pipeline quantity has increased while pipeline quality has remained fairly steady. This is a good outcome, since
-it is easy to sacri fi ce proper quali fi cation when trying to create a bigger pipeline. Worth noting, as in most companies, the
-probability of a win from an upselling opp is signi fi cantly higher (here almost 3X).
-year_qtr total_pipeline_created predicted_opp_win
-_rate
-predicted_opp_win_
-amount
-new_logo_pipeline new_logo_predicted_
-opp_win_rate
-upselling_pipeline upselling_predicted_
-opp_win_rate
-2021-04 $193,082,451 44% $93,300,578 $29,523,197 18% $163,559,255 53%
-2021-03 $169,548,637 42% $67,557,600 $29,996,527 22% $139,552,111 50%
+---
+title: Examples & Queries
+sidebar_label: Examples & queries
+---
+
+Welcome. Browse example categories below; each contains specific, copy‑ready queries and analyses.
+
+## Automatic Data Enhancement (ADE)
+_Transparency on the Data Cleanup Process_
+
+Before you start using the new derived entities it makes sense to understand the quality of the underlying data, and how it has been enhanced by the TrueAI platform. The following examples illustrate some of the ways in how this can be done.
+
+- ade-001: [Lead Duplication](/docs/ade/ade-001)
+
+---
+
+## Deal Intelligence (DI)
+_Revenue & Buyer Journey Insights_
+
+Being able to isolate specific steps in the sales process, and understand the customer factors affecting outcomes is key to improving outcomes. The TrueAI platform makes that possible with the `ssr` and `ssr_history` entities.
+
+---
+
+## Value Intelligence (VI)
+_Fairness & Value Creation in the GTM Org_
+
+If you want to understand rep performance, you must look at what value each rep received, as new leads, existing accounts, or new opportunities from an SDR team. Once you do, you will often find that top performance is correlated with having access to high potential accounts and a great pipeline, created by other reps.
+
+---
+
+## Coaching Intelligence (CI)
+_Rep Skills & Behavior Analysis_
+
+Every GTM organization wants to develop their reps, but if you don’t understand their current behavior and skills, it is hard to provide meaningful individualized coaching, and next to impossible to evaluate the effectiveness of different training, available tools, etc. Cien changes that. Now, previously unavailable data points are at your fingertips.
 2021-02 $125,370,416 44% $59,061,419 $23,573,003 19% $101,797,413 52%
 2021-01 $223,850,916 45% $116,651,892 $17,898,678 19% $205,952,238 54%
 2020-04 $204,615,052 48% $117,202,623 $20,250,146 19% $184,364,906 57%
