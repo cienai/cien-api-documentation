@@ -39,3 +39,19 @@ GIT_USER=<Your GitHub username> yarn deploy
 ```
 
 If you are using GitHub pages for hosting, this command is a convenient way to build the website and push to the `gh-pages` branch.
+
+### GitHub Pages URL
+
+- Production: `https://cienai.github.io/cien-data-api-documentation/`
+
+### Base URL configuration (for repo renames)
+
+The site reads `baseUrl` from `process.env.BASE_URL` with a default of `/cien-data-api-documentation/`.
+
+- Local build with explicit base path:
+
+```bash
+BASE_URL=/cien-data-api-documentation/ npm run build
+```
+
+- GitHub Actions sets `BASE_URL` for deploys (see `.github/workflows/deploy.yml`).

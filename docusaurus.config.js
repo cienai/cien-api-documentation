@@ -4,15 +4,15 @@ const config = {
   favicon: 'img/favicon.ico',
 
   url: 'https://cienai.github.io',
-  // Make baseUrl configurable for smooth repo renames (defaults to current)
-  baseUrl: process.env.BASE_URL || '/cien-api-documentation/',
+  // Make baseUrl configurable for smooth repo renames (defaults to new path)
+  baseUrl: process.env.BASE_URL || '/cien-data-api-documentation/',
 
   // Fail builds on broken internal links; warn on MD links
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
 
   organizationName: 'cienai',
-  projectName: process.env.PROJECT_NAME || 'cien-api-documentation',
+  projectName: process.env.PROJECT_NAME || 'cien-data-api-documentation',
 
   // Avoid GitHub Pages trailing slash redirects and relative link issues
   trailingSlash: false,
