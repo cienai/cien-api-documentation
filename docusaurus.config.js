@@ -28,6 +28,7 @@ const config = {
         { type: 'doc', docId: 'intro', position: 'left', label: 'Get started', className: 'nav-item--intro' },
         { type: 'doc', docId: 'examples', position: 'left', label: 'Examples & queries', className: 'nav-item--examples' },
         { type: 'doc', docId: 'entities/index', position: 'left', label: 'Entities', className: 'nav-item--entities' },
+        { type: 'doc', docId: 'naming-conventions', position: 'left', label: 'Naming Conventions', className: 'nav-item--naming' },
         { type: 'doc', docId: 'rules', position: 'left', label: 'Rules', className: 'nav-item--rules' },
       ],
     },
