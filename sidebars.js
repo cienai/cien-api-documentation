@@ -27,6 +27,7 @@ module.exports = {
             'ade/ade-001',
             'ade/ade-002',
             'ade/ade-003',
+            'ade/ade-004',
           ],
         },
         {
