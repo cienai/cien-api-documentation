@@ -18,6 +18,14 @@ module.exports = {
     'naming-conventions',
     {
       type: 'category',
+      label: 'ADE',
+      collapsed: false,
+      items: [
+        'ade/ade-001-lead-duplication',
+      ],
+    },
+    {
+      type: 'category',
       label: 'Entities',
       collapsed: false,
       items: entityItems,
