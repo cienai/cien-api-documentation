@@ -6,63 +6,48 @@ slug: /docs/entities/
 ---
 
 <!--
-Entities landing page
-- Neutral, factual tone
-- List and group entities present on the site
-- Include entities from PDF and metadata; do not exclude if not in PDF
+Alphabetical index of all entities exposed by the Cien.ai API.
+Do NOT categorize or group entities.
+List entities alphabetically by entity name.
+Each entity name must be a Markdown link to a nested entity detail page.
+Include entities documented in the PDF, entities exposed via metadata, and entities already present on the site.
+Use a neutral, factual documentation tone.
+Each entity should have a short one-line description.
 -->
 
-The Cien.ai API exposes a set of core CRM entities, derived analytical entities, historical entities, and metadata entities. While the API contains over 15 entities and more than 1,000 fields, most use cases require only a subset of these entities. Derived and historical entities (such as `ssr_history` and `users_history`) are designed to simplify accurate historical reporting and advanced analysis.
+# Entities (Alphabetical Index)
 
----
+- [accounts](/docs/entities/accounts/): CRM account records with standardized and TrueAI-enriched fields.
+- [activities](/docs/entities/activities/): CRM activity records (calls, emails, meetings) captured or inferred.
+- [aliasing](/docs/entities/aliasing/): Metadata for standardized aliasing and value normalization.
+- [companies_history](/docs/entities/companies_history/): Company-level processing metadata and quality metrics per cycle.
+- [contacts](/docs/entities/contacts/): CRM contact records with additional TrueAI fields.
+- [erp_accounts](/docs/entities/erp_accounts/): ERP-provided account records when available.
+- [erp_orders](/docs/entities/erp_orders/): ERP order records used for revenue and churn validations.
+- [groups](/docs/entities/groups/): List of user groups and membership data.
+- [hat_leads](/docs/entities/hat_leads/): Consolidated prospecting cycle derived from multiple lead/account signals.
+- [hr_users](/docs/entities/hr_users/): HR user records provided by the client.
+- [leads](/docs/entities/leads/): CRM lead records with duplicate detection and enrichment.
+- [metadata_ai_scores](/docs/entities/metadata_ai_scores/): AI score outputs and metadata by model/version.
+- [metadata_ai_scores_analysis_categories](/docs/entities/metadata_ai_scores_analysis_categories/): Analysis categories used for AI score interpretation.
+- [metadata_ai_scores_category_links](/docs/entities/metadata_ai_scores_category_links/): Links between AI score categories and entities/fields.
+- [metadata_graphics](/docs/entities/metadata_graphics/): Graphics metadata collection for visualizations.
+- [metadata_heatmap_items](/docs/entities/metadata_heatmap_items/): Heatmap items and display metadata.
+- [metadata_reference_values](/docs/entities/metadata_reference_values/): Standardized reference values for TrueAI fields.
+- [open_pipeline](/docs/entities/open_pipeline/): Open pipeline snapshots for in-period analysis.
+- [opp_line_items](/docs/entities/opp_line_items/): Opportunity line item records (product-level revenue details).
+- [opps](/docs/entities/opps/): CRM opportunity records with additional TrueAI fields.
+- [opps_histories](/docs/entities/opps_histories/): CRM opportunity history records (raw stage changes and edits).
+- [opps_stages](/docs/entities/opps_stages/): Master list of opportunity stages and normalized mappings.
+- [pipelines](/docs/entities/pipelines/): Pipeline aggregates and normalized structures.
+- [products](/docs/entities/products/): Master list of products and product metadata.
+- [ssr](/docs/entities/ssr/): Single Sales Record (deduplicated/consolidated customer record).
+- [ssr_history](/docs/entities/ssr_history/): Historical SSR progression across standardized sales steps.
+- [ssr_history_stakeholders](/docs/entities/ssr_history_stakeholders/): Stakeholder involvement per SSR step.
+- [ssr_history_success_factors](/docs/entities/ssr_history_success_factors/): Success factor signals per SSR step.
+- [users](/docs/entities/users/): CRM users and TrueAI platform users.
+- [users_activities](/docs/entities/users_activities/): Aggregated user activity records (per user, per period).
+- [users_history](/docs/entities/users_history/): Monthly snapshots of user records for historical reporting.
 
-## Core CRM Entities
-
-- `leads`: CRM lead records with additional TrueAI fields
-- `accounts`: CRM account records with additional TrueAI fields
-- `contacts`: CRM contact records with additional TrueAI fields
-- `opps`: CRM opportunity records with additional TrueAI fields
-- `opp_line_items`: CRM opportunity line item records
-- `opps_histories`: CRM opportunity history records
-- `opps_stages`: Master list of opportunity stages
-- `products`: Master list of products
-- `activities`: CRM activity records (typically available separately due to size)
-- `users`: CRM users and additional users created in the TrueAI platform
-- `groups`: List of user groups
-- `hr_users`: HR user records provided by the client
-
----
-
-## Derived & Analytical Entities
-
-- `ssr`: Single Sales Record (deduplicated and consolidated representation of leads and accounts)
-- `ssr_history`: Historical representation of SSR progression through sales steps
-- `hat_leads`: Derived entity representing a consolidated prospecting cycle
-- `customer_accounts`: Derived entity representing an account in a specific post‑selling cycle
-
----
-
-## Historical & System Entities
-
-- `users_history`: Monthly snapshots of user records for historical reporting
-- `companies_history`: Company‑level metadata and quality metrics per processing cycle
-
----
-
-## Metadata Entities
-
-- `metadata_entities`: Definitions of all available API entities
-- `metadata_fields`: Definitions of all available fields across entities
-- `metadata_classes`: Standardized value classes for TrueAI fields
-
----
-
-## Graphics & Meta Collections
-
-- `metadata_graphics`: Graphics metadata collection
-- `aliasing`: Aliasing metadata collection
-
----
-
-Use the sidebar to navigate to each entity’s reference page for fields, relationships, and usage notes.
+Note: Some entities may not appear in the PDF but are included here if exposed via the API or metadata.
 
