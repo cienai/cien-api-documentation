@@ -7,13 +7,20 @@
 
 /* You can override the default Infima variables here. */
 :root {
-  --ifm-color-primary: #2e8555;
-  --ifm-color-primary-dark: #29784c;
-  --ifm-color-primary-darker: #277148;
-  --ifm-color-primary-darkest: #205d3b;
-  --ifm-color-primary-light: #33925d;
-  --ifm-color-primary-lighter: #359962;
-  --ifm-color-primary-lightest: #3cad6e;
+  /* Global accent color (light theme) */
+  --ifm-color-primary: #61C1C5;
+  --ifm-color-primary-dark: #4E9AA0;
+  --ifm-color-primary-darker: #458A8F;
+  --ifm-color-primary-darkest: #386E72;
+  --ifm-color-primary-light: #74C9CC;
+  --ifm-color-primary-lighter: #86D1D4;
+  --ifm-color-primary-lightest: #A4DEE0;
+  /* Links and interactive states */
+  --ifm-link-color: #61C1C5;
+  --ifm-link-hover-color: #86D1D4;
+  --ifm-menu-color-active: #61C1C5;
+  --ifm-tabs-color-active: #61C1C5;
+  --ifm-breadcrumb-color-active: #61C1C5;
   --ifm-code-font-size: 95%;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
   /* Make the docs content area wider on large screens */
@@ -27,13 +34,20 @@
 
 /* For readability concerns, you should choose a lighter palette in dark mode. */
 [data-theme='dark'] {
-  --ifm-color-primary: #25c2a0;
-  --ifm-color-primary-dark: #21af90;
-  --ifm-color-primary-darker: #1fa588;
-  --ifm-color-primary-darkest: #1a8870;
-  --ifm-color-primary-light: #29d5b0;
-  --ifm-color-primary-lighter: #32d8b4;
-  --ifm-color-primary-lightest: #4fddbf;
+  /* Global accent color (dark theme) */
+  --ifm-color-primary: #61C1C5;
+  --ifm-color-primary-dark: #4E9AA0;
+  --ifm-color-primary-darker: #458A8F;
+  --ifm-color-primary-darkest: #386E72;
+  --ifm-color-primary-light: #74C9CC;
+  --ifm-color-primary-lighter: #86D1D4;
+  --ifm-color-primary-lightest: #A4DEE0;
+  /* Links and interactive states */
+  --ifm-link-color: #61C1C5;
+  --ifm-link-hover-color: #86D1D4;
+  --ifm-menu-color-active: #61C1C5;
+  --ifm-tabs-color-active: #61C1C5;
+  --ifm-breadcrumb-color-active: #61C1C5;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
   /* Force navbar and footer background colors (dark mode) */
   --ifm-navbar-background-color: #212228;
@@ -129,24 +143,15 @@
 }
 
 /* Ensure colors persist in dark mode */
-[data-theme='dark'] .navbar .nav-item--intro .navbar__link {
-  color: #FCB900 !important;
-}
-[data-theme='dark'] .navbar .nav-item--intro .navbar__link:hover {
-  color: #f4c458 !important;
-}
-[data-theme='dark'] .navbar .nav-item--examples .navbar__link,
-[data-theme='dark'] .navbar .nav-item--queries .navbar__link,
-[data-theme='dark'] .navbar .nav-item--entities .navbar__link,
-[data-theme='dark'] .navbar .nav-item--rules .navbar__link {
-  color: #bfbebe !important;
-}
-[data-theme='dark'] .navbar .nav-item--examples .navbar__link:hover,
-[data-theme='dark'] .navbar .nav-item--queries .navbar__link:hover,
-[data-theme='dark'] .navbar .nav-item--entities .navbar__link:hover,
-[data-theme='dark'] .navbar .nav-item--rules .navbar__link:hover {
-  color: #d8d7d6 !important;
-}
+/* In dark mode, match light mode nav link colors for visibility */
+[data-theme='dark'] .navbar .navbar__link { color: #bfbebe !important; }
+[data-theme='dark'] .navbar .navbar__link:hover,
+[data-theme='dark'] .navbar .navbar__link:focus,
+[data-theme='dark'] .navbar .navbar__link--active { color: #d8d7d6 !important; }
+[data-theme='dark'] .navbar .nav-item--intro .navbar__link { color: #FCB900 !important; }
+[data-theme='dark'] .navbar .nav-item--intro .navbar__link:hover,
+[data-theme='dark'] .navbar .nav-item--intro .navbar__link:focus,
+[data-theme='dark'] .navbar .nav-item--intro .navbar__link--active { color: #f4c458 !important; }
 [data-theme='dark'] .navbar .DocSearch-Button,
 [data-theme='dark'] .navbar .theme-toggle {
   color: #FCB900 !important;
@@ -165,6 +170,35 @@
 .navbar .navbar__toggle svg {
   fill: #FCB900 !important;
   color: #FCB900 !important;
+}
+
+/* Ensure the color mode toggle (sun/moon) stays visible in dark mode */
+.navbar button[aria-label*="Switch between dark and light mode"],
+.navbar .clean-btn[aria-label*="Switch between dark and light mode"] {
+  color: #FCB900 !important;           /* icon color */
+  border: 1px solid #FCB900 !important; /* circle outline */
+  border-radius: 9999px !important;
+}
+.navbar button[aria-label*="Switch between dark and light mode"] svg,
+.navbar .clean-btn[aria-label*="Switch between dark and light mode"] svg {
+  fill: #FCB900 !important;
+  color: #FCB900 !important;
+  stroke: #FCB900 !important;
+}
+
+/* In both themes, keep the same toggle colors */
+[data-theme='dark'] .navbar button[aria-label*="Switch between dark and light mode"],
+[data-theme='dark'] .navbar .clean-btn[aria-label*="Switch between dark and light mode"],
+[data-theme='light'] .navbar button[aria-label*="Switch between dark and light mode"],
+[data-theme='light'] .navbar .clean-btn[aria-label*="Switch between dark and light mode"] {
+  color: #FCB900 !important;
+  border-color: #FCB900 !important;
+}
+[data-theme='dark'] .navbar button[aria-label*="Switch between dark and light mode"] svg,
+[data-theme='dark'] .navbar .clean-btn[aria-label*="Switch between dark and light mode"] svg,
+[data-theme='light'] .navbar button[aria-label*="Switch between dark and light mode"] svg,
+[data-theme='light'] .navbar .clean-btn[aria-label*="Switch between dark and light mode"] svg {
+  fill: #FCB900 !important;
 }
 
 /* Show inline navigation at all widths; remove hamburger */

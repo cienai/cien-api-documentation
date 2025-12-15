@@ -22,10 +22,6 @@ export default function Home() {
             </Link>
 
             <Link className="button button--secondary margin--sm" to={useBaseUrl('docs/examples')}>
-              Examples
-            </Link>
-
-            <Link className="button button--secondary margin--sm" to={useBaseUrl('docs/examples')}>
               Examples & queries
             </Link>
 

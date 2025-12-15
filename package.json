@@ -4,6 +4,7 @@
     "generate:rules": "node scripts/generate-rules.js",
     "start": "docusaurus start",
     "build": "docusaurus build",
+    "serve": "docusaurus serve",
     "predeploy": "docusaurus build",
     "deploy": "docusaurus deploy"
   },

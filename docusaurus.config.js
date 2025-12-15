@@ -13,6 +13,11 @@ const config = {
   trailingSlash: false,
 
   themeConfig: {
+    colorMode: {
+      defaultMode: 'dark',
+      disableSwitch: false,
+      respectPrefersColorScheme: false,
+    },
     navbar: {
       title: '',
       logo: {
@@ -22,7 +27,7 @@ const config = {
       items: [
         { type: 'doc', docId: 'intro', position: 'left', label: 'Get started', className: 'nav-item--intro' },
         { type: 'doc', docId: 'examples', position: 'left', label: 'Examples & queries', className: 'nav-item--examples' },
-        { type: 'docSidebar', sidebarId: 'docs', position: 'left', label: 'Entities', className: 'nav-item--entities' },
+        { type: 'doc', docId: 'entities/index', position: 'left', label: 'Entities', className: 'nav-item--entities' },
         { type: 'doc', docId: 'rules', position: 'left', label: 'Rules', className: 'nav-item--rules' },
       ],
     },
