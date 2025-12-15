@@ -21,7 +21,7 @@ module.exports = {
       label: 'ADE',
       collapsed: false,
       items: [
-        'ade/ade-001-lead-duplication',
+        'ade/ade-001',
       ],
     },
     {
