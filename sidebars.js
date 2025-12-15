@@ -19,7 +19,38 @@ module.exports = {
       link: { type: 'doc', id: 'examples' },
       collapsed: false,
       items: [
-        'ade/ade-001',
+        {
+          type: 'category',
+          label: 'Automatic Data Enhancement (ADE)',
+          collapsed: false,
+          items: [
+            'ade/ade-001',
+          ],
+        },
+        {
+          type: 'category',
+          label: 'Deal Intelligence (DI)',
+          collapsed: false,
+          items: [
+            'di/di-001',
+          ],
+        },
+        {
+          type: 'category',
+          label: 'Value Intelligence (VI)',
+          collapsed: false,
+          items: [
+            'vi/vi-001',
+          ],
+        },
+        {
+          type: 'category',
+          label: 'Coaching Intelligence (CI)',
+          collapsed: false,
+          items: [
+            'ci/ci-001',
+          ],
+        },
       ],
     },
     'rules',
