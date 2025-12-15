@@ -3,6 +3,7 @@ id: ade-002
 title: Company Consolidation
 version: v1.0
 category: Automatic Data Enhancement
+slug: /ade/ade-002
 ---
 
 ## Description

@@ -11,6 +11,9 @@ permissions:
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
+    env:
+      # Base path for GitHub Pages; updated after repo rename
+      BASE_URL: /cien-data-api-documentation/
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -34,6 +37,15 @@ jobs:
 
       - name: Build website
         run: npm run build
+
+      - name: Link check (serve + crawl)
+        run: |
+          npx --yes http-server ./build -p 3000 -s &
+          SERVER_PID=$!
+          # give the server a moment to start
+          sleep 2
+          npx --yes linkinator "http://localhost:3000${{ env.BASE_URL }}" --recurse --skip "mailto:,tel:,^https://fonts.googleapis.com,https://fonts.gstatic.com"
+          kill $SERVER_PID
 
       - name: Deploy to GitHub Pages (gh-pages branch)
         uses: peaceiris/actions-gh-pages@v3

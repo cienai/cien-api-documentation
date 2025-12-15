@@ -3,6 +3,7 @@ id: ci-001
 title: Rep Activity Consistency
 version: v1.0
 category: Coaching Intelligence
+slug: /ci/ci-001
 ---
 
 ## Description

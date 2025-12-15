@@ -98,10 +98,6 @@ The table below lists the available rules and their key attributes.
 | Lookup | SAME_CREATOR_OWNER | 119008 | Value is absent but creator is the same as owner, returning Rep Lead Gen | false |
 | Lookup | SELF | 119001 | Value present, no need to look up | true |
 | Lookup | SELF_ND | 119007 | ND value present, and no non-ND value in other entities | false |
-| model | rule_name | _sys_doc_id | description | is_default_rule |
-| model | rule_name | _sys_doc_id | description | is_default_rule |
-| model | rule_name | _sys_doc_id | description | is_default_rule |
-| model | rule_name | _sys_doc_id | description | is_default_rule |
 | OppHistoriesActivityStats | ACTIVITY_CAPTURE_LEVEL_TOO_LOW_RETURN_NONE | 116001 | Activity Capture Level too low, return None | false |
 | OppHistoriesActivityStats | ADJUSTED_DURATION_ENOUGH_ACTIVITY_CAPTURE_LEVEL | 116002 | Activity Capture Level enough, use the present value | true |
 | OppsBookingAmt | CUSTOM_MAPPING_IN_OPPS_USE_MAPPED_CRM_FIELD | 122003 | Custom mapping in opps, use the CRM amount field that was mapped | false |

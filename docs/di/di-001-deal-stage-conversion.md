@@ -3,6 +3,7 @@ id: di-001
 title: Deal Stage Conversion
 version: v1.0
 category: Deal Intelligence
+slug: /di/di-001
 ---
 
 ## Description

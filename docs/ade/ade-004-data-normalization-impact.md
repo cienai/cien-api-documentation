@@ -3,6 +3,7 @@ id: ade-004
 title: Data Normalization Impact
 version: v1.0
 category: Automatic Data Enhancement
+slug: /ade/ade-004
 ---
 
 ## Description

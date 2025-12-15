@@ -3,6 +3,7 @@ id: ade-003
 title: Master Record Selection
 version: v1.0
 category: Automatic Data Enhancement
+slug: /ade/ade-003
 ---
 
 ## Description

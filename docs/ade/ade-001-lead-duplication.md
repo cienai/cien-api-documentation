@@ -4,6 +4,7 @@ title: Lead Duplication
 version: v1.2
 category: "Analytics & Data Examples"
 sidebar_label: Lead Duplication
+slug: /ade/ade-001
 ---
 
 # Lead Duplication
