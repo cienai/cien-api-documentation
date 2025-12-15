@@ -58,6 +58,7 @@ module.exports = {
             'ci/ci-001',
             'ci/ci-002',
             'ci/ci-003',
+            'ci/ci-004',
           ],
         },
       ],
