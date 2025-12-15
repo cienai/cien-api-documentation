@@ -44,7 +44,9 @@ jobs:
           SERVER_PID=$!
           # give the server a moment to start
           sleep 2
-          npx --yes linkinator "http://localhost:3000${{ env.BASE_URL }}" --recurse --skip "mailto:,tel:,^https://fonts.googleapis.com,https://fonts.gstatic.com"
+          echo "Crawling http://localhost:3000${{ env.BASE_URL }}"
+          # Internal links only to avoid flakiness from external sites
+          npx --yes linkinator "http://localhost:3000${{ env.BASE_URL }}" --recurse --linksToSameHostname --skip "mailto:,tel:"
           kill $SERVER_PID
 
       - name: Deploy to GitHub Pages (gh-pages branch)
