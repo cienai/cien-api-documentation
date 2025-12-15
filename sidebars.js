@@ -56,6 +56,7 @@ module.exports = {
           collapsed: false,
           items: [
             'ci/ci-001',
+            'ci/ci-002',
           ],
         },
       ],
