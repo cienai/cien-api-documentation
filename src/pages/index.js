@@ -25,8 +25,8 @@ export default function Home() {
               Examples
             </Link>
 
-            <Link className="button button--secondary margin--sm" to={useBaseUrl('docs/queries')}>
-              Queries
+            <Link className="button button--secondary margin--sm" to={useBaseUrl('docs/examples')}>
+              Examples & queries
             </Link>
 
             <Link className="button button--secondary margin--sm" to={useBaseUrl('docs/entities/contacts/')}>

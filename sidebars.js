@@ -15,7 +15,6 @@ module.exports = {
     'intro',
     'examples',
     'rules',
-    'queries',
     'naming-conventions',
     {
       type: 'category',

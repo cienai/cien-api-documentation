@@ -21,8 +21,7 @@ const config = {
       },
       items: [
         { type: 'doc', docId: 'intro', position: 'left', label: 'Get started', className: 'nav-item--intro' },
-        { type: 'doc', docId: 'examples', position: 'left', label: 'Examples', className: 'nav-item--examples' },
-        { type: 'doc', docId: 'queries', position: 'left', label: 'Queries', className: 'nav-item--queries' },
+        { type: 'doc', docId: 'examples', position: 'left', label: 'Examples & queries', className: 'nav-item--examples' },
         { type: 'docSidebar', sidebarId: 'docs', position: 'left', label: 'Entities', className: 'nav-item--entities' },
         { type: 'doc', docId: 'rules', position: 'left', label: 'Rules', className: 'nav-item--rules' },
       ],
