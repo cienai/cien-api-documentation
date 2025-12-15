@@ -13,17 +13,17 @@ const entityItems = fs
 module.exports = {
   docs: [
     'intro',
-    'examples',
-    'rules',
-    'naming-conventions',
     {
       type: 'category',
-      label: 'ADE',
+      label: 'Examples & queries',
+      link: { type: 'doc', id: 'examples' },
       collapsed: false,
       items: [
         'ade/ade-001',
       ],
     },
+    'rules',
+    'naming-conventions',
     {
       type: 'category',
       label: 'Entities',
