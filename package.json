@@ -1,6 +1,7 @@
 {
   "scripts": {
     "generate:entities": "node scripts/generate-entities.js",
+    "generate:rules": "node scripts/generate-rules.js",
     "start": "docusaurus start",
     "build": "docusaurus build",
     "predeploy": "docusaurus build",

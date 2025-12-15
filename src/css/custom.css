@@ -77,6 +77,51 @@
 .navbar .nav-item--rules .navbar__link:hover {
   color: #d8d7d6 !important;
 }
+/* Active + focus states: keep the same across themes */
+.navbar .nav-item--intro .navbar__link:focus,
+.navbar .nav-item--intro .navbar__link:focus-visible,
+.navbar .nav-item--intro .navbar__link--active {
+  color: #f4c458 !important;
+}
+.navbar .nav-item--examples .navbar__link:focus,
+.navbar .nav-item--examples .navbar__link:focus-visible,
+.navbar .nav-item--examples .navbar__link--active,
+.navbar .nav-item--queries .navbar__link:focus,
+.navbar .nav-item--queries .navbar__link:focus-visible,
+.navbar .nav-item--queries .navbar__link--active,
+.navbar .nav-item--entities .navbar__link:focus,
+.navbar .nav-item--entities .navbar__link:focus-visible,
+.navbar .nav-item--entities .navbar__link--active,
+.navbar .nav-item--rules .navbar__link:focus,
+.navbar .nav-item--rules .navbar__link:focus-visible,
+.navbar .nav-item--rules .navbar__link--active {
+  color: #d8d7d6 !important;
+}
+/* Theme-agnostic duplication to defeat any dark/light overrides */
+[data-theme='dark'] .navbar .nav-item--intro .navbar__link,
+[data-theme='dark'] .navbar .nav-item--intro .navbar__link:hover,
+[data-theme='dark'] .navbar .nav-item--intro .navbar__link:focus,
+[data-theme='dark'] .navbar .nav-item--intro .navbar__link--active {
+  color: inherit !important; /* use values from rules above via cascade */
+}
+[data-theme='dark'] .navbar .nav-item--examples .navbar__link,
+[data-theme='dark'] .navbar .nav-item--queries .navbar__link,
+[data-theme='dark'] .navbar .nav-item--entities .navbar__link,
+[data-theme='dark'] .navbar .nav-item--rules .navbar__link,
+[data-theme='dark'] .navbar .nav-item--examples .navbar__link:hover,
+[data-theme='dark'] .navbar .nav-item--queries .navbar__link:hover,
+[data-theme='dark'] .navbar .nav-item--entities .navbar__link:hover,
+[data-theme='dark'] .navbar .nav-item--rules .navbar__link:hover,
+[data-theme='dark'] .navbar .nav-item--examples .navbar__link:focus,
+[data-theme='dark'] .navbar .nav-item--queries .navbar__link:focus,
+[data-theme='dark'] .navbar .nav-item--entities .navbar__link:focus,
+[data-theme='dark'] .navbar .nav-item--rules .navbar__link:focus,
+[data-theme='dark'] .navbar .nav-item--examples .navbar__link--active,
+[data-theme='dark'] .navbar .nav-item--queries .navbar__link--active,
+[data-theme='dark'] .navbar .nav-item--entities .navbar__link--active,
+[data-theme='dark'] .navbar .nav-item--rules .navbar__link--active {
+  color: inherit !important; /* respect exact colors set above */
+}
 .navbar .DocSearch-Button-Container svg,
 .navbar .navbar__toggle svg {
   fill: #FCB900 !important;
