@@ -47,6 +47,7 @@ module.exports = {
           items: [
             'vi/vi-001',
             'vi/vi-002',
+            'vi/vi-003',
           ],
         },
         {
