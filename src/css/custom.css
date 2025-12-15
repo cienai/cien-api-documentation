@@ -186,6 +186,28 @@
   stroke: #FCB900 !important;
 }
 
+/* Navbar link colors: white by default, teal when selected (both themes) */
+.navbar .navbar__link {
+  color: #ffffff !important;
+}
+.navbar .navbar__link:hover,
+.navbar .navbar__link:focus {
+  color: #ffffff !important;
+}
+.navbar .navbar__link--active,
+.navbar .navbar__link--active:hover,
+.navbar .navbar__link--active:focus {
+  color: #61C1C5 !important;
+}
+
+/* Mobile menu link colors to match */
+.menu__link {
+  color: #ffffff !important;
+}
+.menu__link.menu__link--active {
+  color: #61C1C5 !important;
+}
+
 /* In both themes, keep the same toggle colors */
 [data-theme='dark'] .navbar button[aria-label*="Switch between dark and light mode"],
 [data-theme='dark'] .navbar .clean-btn[aria-label*="Switch between dark and light mode"],
@@ -352,6 +374,12 @@
 .home-hero-content .button.button--secondary:hover {
   background-color: #3f414f;
   border-color: #3f414f;
+}
+
+/* Ensure hero text is white in both themes */
+.home-hero-content h1,
+.home-hero-content p {
+  color: #ffffff !important;
 }
 
 /* Banner section should occupy full available width/height with image contained */
